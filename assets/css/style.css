@@ -40,6 +40,10 @@ a:hover {
   color: #2a6f77;
 }
 
+a:visited {
+  color: #2f7f88;
+}
+
 .home-lang {
   display: flex;
   justify-content: flex-end;
@@ -266,6 +270,11 @@ article h1 {
 h2 {
   margin: 24px 0 10px;
   font-size: 22px;
+}
+
+.page h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
 }
 
 .badge {
