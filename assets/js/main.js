@@ -221,7 +221,8 @@ function initNotes() {
     .then((notes) => {
       const langLabels = { pt: "PT", en: "EN", it: "IT" };
       container.innerHTML = "";
-      notes.forEach((note, idx) => {
+      const filtered = notes.filter((note) => note.title !== "[TÍTULO]");
+      filtered.forEach((note, idx) => {
         const article = document.createElement("article");
         article.className = "post-item";
         if (note.lang) article.dataset.lang = note.lang;
@@ -232,7 +233,8 @@ function initNotes() {
 
         const meta = document.createElement("p");
         meta.className = "meta";
-        const date = note.date || "";
+        const dateRaw = note.date || "";
+        const date = dateRaw.split(" ")[0];
         const langTag = langLabels[note.lang] || (note.lang || "").toUpperCase();
         const parts = [];
         if (date) parts.push(date);
@@ -247,7 +249,7 @@ function initNotes() {
         article.appendChild(body);
 
         container.appendChild(article);
-        if (idx < notes.length - 1) {
+        if (idx < filtered.length - 1) {
           const hr = document.createElement("hr");
           hr.className = "post-divider";
           container.appendChild(hr);
