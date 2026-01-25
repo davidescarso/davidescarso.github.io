@@ -183,6 +183,21 @@ function initBlogFilter() {
   applyFilter("all");
 }
 
+function initRandomImage() {
+  const img = document.getElementById("randomImage");
+  if (!img) return;
+  const section = img.closest(".random-image-section");
+  const images = [];
+  if (!images.length) {
+    if (section) section.style.display = "none";
+    return;
+  }
+  const choice = images[Math.floor(Math.random() * images.length)];
+  img.src = choice.src;
+  img.alt = choice.alt || "";
+  if (section) section.style.display = "";
+}
+
 function initEmailObfuscation() {
   const links = document.querySelectorAll(".js-email");
   links.forEach((link) => {
@@ -199,5 +214,6 @@ function initEmailObfuscation() {
 window.addEventListener("DOMContentLoaded", () => {
   initLang();
   initBlogFilter();
+  initRandomImage();
   initEmailObfuscation();
 });

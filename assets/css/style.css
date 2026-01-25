@@ -294,25 +294,27 @@ article h1 {
   margin-bottom: 24px;
 }
 
-.hero h1 {
-  font-size: 32px;
-  margin: 0 0 8px;
-}
-
 .hero p {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--muted);
   margin: 0;
   max-width: 720px;
 }
 
-.hero-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
+.random-image-section {
+  margin-top: 24px;
+}
+
+.random-image {
+  margin: 0;
+}
+
+.random-image img {
   display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 4px;
 }
 
 .card {
