@@ -103,16 +103,21 @@ main > :not(.page-top) {
   font-size: 13px;
 }
 
-.page-nav a:visited {
-  color: #2f7f88;
-}
-
 .page-nav a:hover {
   color: #2a6f77;
 }
 
-.page-nav a:active {
-  color: #2a6f77;
+.home-lang {
+  justify-content: flex-start;
+}
+
+.page .home-lang {
+  margin: 0;
+  align-self: flex-start;
+}
+
+.home-lang button {
+  padding: 4px 4px;
 }
 
 @media (max-width: 900px) {
@@ -158,7 +163,7 @@ a:active {
 
 .home-lang {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 10px;
   margin: 4px 0 28px;
   line-height: 1;
@@ -166,7 +171,7 @@ a:active {
 
 .page .home-lang {
   margin: 0;
-  align-self: flex-start;
+  align-self: baseline;
 }
 
 .home-lang button {
@@ -179,7 +184,6 @@ a:active {
   letter-spacing: 0.6px;
   opacity: 0.6;
   line-height: 1;
-  padding: 4px 4px;
 }
 
 .home-lang button.active {
@@ -214,6 +218,22 @@ header {
   letter-spacing: 0.4px;
 }
 
+
+.page-nav a:link {
+  color: #2f7f88;
+}
+
+.page-nav a:visited {
+  color: #2f7f88;
+}
+
+.page-nav a:hover {
+  color: #2a6f77;
+}
+
+.page-nav a:active {
+  color: #2a6f77;
+}
 
 nav a:link,
 nav a:visited {
