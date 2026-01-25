@@ -84,12 +84,13 @@ main > :not(.page-top) {
 
 .page-brand {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: 0.3px;
-  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 20px;
 }
 
 .page-brand:hover {
