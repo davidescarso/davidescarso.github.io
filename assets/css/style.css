@@ -119,9 +119,10 @@ main > :not(.page-top) {
 
 .page-nav a {
   color: #2f7f88;
-  text-transform: none;
-  letter-spacing: 0.7px;
-  font-size: 13px;
+  text-transform: lowercase;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  font-weight: 600;
   font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -248,10 +249,11 @@ nav a:visited {
   text-decoration: none;
   color: #2f7f88;
   margin-right: 14px;
-  font-size: 15px;
+  font-size: 16px;
   font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
-  text-transform: none;
-  letter-spacing: 0.8px;
+  text-transform: lowercase;
+  letter-spacing: 0.2px;
+  font-weight: 600;
   padding-bottom: 2px;
 }
 
