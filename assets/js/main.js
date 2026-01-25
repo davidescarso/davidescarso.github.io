@@ -187,6 +187,7 @@ function initRandomImage() {
   const img = document.getElementById("randomImage");
   if (!img) return;
   const section = img.closest(".random-image-section");
+  const sourceEl = document.getElementById("imageSource");
   const images = [
     { src: "assets/images/random/0dea2668-elon-musk.webp" },
     { src: "assets/images/random/1922791.jpeg" },
@@ -210,6 +211,26 @@ function initRandomImage() {
   const choice = images[Math.floor(Math.random() * images.length)];
   img.src = choice.src;
   img.alt = choice.alt || "";
+  if (sourceEl) {
+    fetch("assets/image_sources.json")
+      .then((res) => res.json())
+      .then((sources) => {
+        const file = choice.src.split("/").pop();
+        const data = sources[file];
+        if (!data || !data.text) {
+          sourceEl.textContent = "";
+          return;
+        }
+        if (data.url) {
+          sourceEl.innerHTML = `Fonte: <a href="${data.url}">${data.text}</a>`;
+        } else {
+          sourceEl.textContent = `Fonte: ${data.text}`;
+        }
+      })
+      .catch(() => {
+        sourceEl.textContent = "";
+      });
+  }
   if (section) section.style.display = "";
 }
 
