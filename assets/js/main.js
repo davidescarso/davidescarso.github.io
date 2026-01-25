@@ -104,6 +104,7 @@ function setLang(lang) {
   });
   document.querySelectorAll(".lang-toggle button, .home-lang button").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
+    btn.style.display = btn.dataset.lang === lang ? "none" : "";
   });
   document.documentElement.setAttribute("lang", lang);
   localStorage.setItem("site-lang", lang);
@@ -128,6 +129,9 @@ function getPreferredLang() {
   if (fromQuery && i18n[fromQuery]) return fromQuery;
   const saved = localStorage.getItem("site-lang");
   if (saved && i18n[saved]) return saved;
+  const browserLang = (navigator.language || "").toLowerCase();
+  if (browserLang.startsWith("pt")) return "pt";
+  if (browserLang.startsWith("it")) return "it";
   return "en";
 }
 

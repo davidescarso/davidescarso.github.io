@@ -96,6 +96,13 @@ main > :not(.page-top) {
   gap: 10px;
 }
 
+.home-lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
 .page-nav a {
   color: #2f7f88;
   text-transform: uppercase;
@@ -135,6 +142,11 @@ main > :not(.page-top) {
   .page-top-inner,
   .page-nav {
     align-items: flex-start;
+  }
+
+  .home-lang {
+    position: static;
+    align-self: flex-start;
   }
 }
 
