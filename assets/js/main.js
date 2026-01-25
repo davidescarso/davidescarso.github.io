@@ -107,6 +107,9 @@ function setLang(lang) {
   localStorage.setItem("site-lang", lang);
   syncLangLinks(lang);
   updateLangQuery(lang);
+
+  // Remove loading class to show content
+  document.body.classList.remove("loading");
 }
 
 function initLang() {
