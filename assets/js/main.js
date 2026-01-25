@@ -213,6 +213,52 @@ function initRandomImage() {
   if (section) section.style.display = "";
 }
 
+function initNotes() {
+  const container = document.getElementById("notes");
+  if (!container) return;
+  fetch("notes.json")
+    .then((res) => res.json())
+    .then((notes) => {
+      const langLabels = { pt: "PT", en: "EN", it: "IT" };
+      container.innerHTML = "";
+      notes.forEach((note, idx) => {
+        const article = document.createElement("article");
+        article.className = "post-item";
+        if (note.lang) article.dataset.lang = note.lang;
+
+        const title = document.createElement("h2");
+        title.textContent = note.title || "";
+        article.appendChild(title);
+
+        const meta = document.createElement("p");
+        meta.className = "meta";
+        const date = note.date || "";
+        const langTag = langLabels[note.lang] || (note.lang || "").toUpperCase();
+        const parts = [];
+        if (date) parts.push(date);
+        if (langTag) parts.push(`<span class="lang-tag">${langTag}</span>`);
+        if (note.source) parts.push(note.source);
+        meta.innerHTML = parts.join(" · ");
+        article.appendChild(meta);
+
+        const body = document.createElement("div");
+        body.className = "post-body";
+        body.innerHTML = note.body_html || "";
+        article.appendChild(body);
+
+        container.appendChild(article);
+        if (idx < notes.length - 1) {
+          const hr = document.createElement("hr");
+          hr.className = "post-divider";
+          container.appendChild(hr);
+        }
+      });
+    })
+    .catch(() => {
+      container.innerHTML = '<p class="meta">Notes unavailable.</p>';
+    });
+}
+
 function initEmailObfuscation() {
   const links = document.querySelectorAll(".js-email");
   links.forEach((link) => {
@@ -229,6 +275,7 @@ function initEmailObfuscation() {
 window.addEventListener("DOMContentLoaded", () => {
   initLang();
   initBlogFilter();
+  initNotes();
   initRandomImage();
   initEmailObfuscation();
 });
