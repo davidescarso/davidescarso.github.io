@@ -25,7 +25,11 @@ body {
 
 /* Prevent flash of unstyled content */
 body.loading {
-  visibility: hidden;
+  opacity: 0;
+}
+
+body {
+  transition: opacity 0.05s ease-in;
 }
 
 .home header {
@@ -46,7 +50,7 @@ a:hover {
 }
 
 a:visited {
-  color: #2f7f88;
+  color: #2f7f88 !important;
 }
 
 .home-lang {
@@ -169,6 +173,10 @@ header {
   color: #2f7f88;
 }
 
+.page-nav a:visited {
+  color: #2f7f88 !important;
+}
+
 .page-nav a:hover {
   color: #2a6f77;
 }
@@ -181,6 +189,10 @@ nav a {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   padding-bottom: 2px;
+}
+
+nav a:visited {
+  color: #2f7f88 !important;
 }
 
 nav a:hover {
@@ -368,6 +380,10 @@ h2 {
   text-decoration: none;
 }
 
+.post-nav a:visited {
+  color: var(--accent-2) !important;
+}
+
 .post-nav a:hover {
   color: var(--accent-2-dark);
 }
@@ -439,6 +455,10 @@ h2 {
 .pagination .page-next {
   width: auto;
   padding: 0 6px;
+}
+
+.pagination a:visited {
+  color: #2f7f88 !important;
 }
 
 .pagination a:hover {
