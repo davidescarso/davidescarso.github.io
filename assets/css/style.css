@@ -32,12 +32,17 @@ body {
   transition: opacity 0.05s ease-in;
 }
 
-.home header {
+/* Hide header on desktop, show on mobile */
+.home header,
+.page header {
   display: none;
 }
 
-.page header {
-  display: none;
+@media (max-width: 900px) {
+  .home header,
+  .page header {
+    display: block;
+  }
 }
 
 .home main,
@@ -64,7 +69,17 @@ main > :not(.page-top) {
 }
 
 .page-brand {
-  display: none;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  margin-bottom: 24px;
+}
+
+.page-brand:hover {
+  color: #2a6f77;
 }
 
 .page-top-inner {
@@ -116,6 +131,10 @@ main > :not(.page-top) {
     position: static;
     grid-column: 1;
     grid-row: auto;
+  }
+
+  .page-brand {
+    display: none;
   }
 
   .page-top-inner,
@@ -199,64 +218,6 @@ header {
   letter-spacing: 0.4px;
 }
 
-.page-top {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, var(--maxw)) 1fr;
-  align-items: baseline;
-  gap: 12px;
-  margin: 4px 0 28px;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0;
-}
-
-.page-brand {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--ink);
-  padding-left: 20px;
-  grid-column: 1;
-  line-height: 1;
-}
-
-.page-top-inner {
-  grid-column: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-  padding: 0 20px;
-}
-
-.page-nav {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  line-height: 1;
-}
-
-@media (max-width: 760px) {
-  .page-top {
-    grid-template-columns: 1fr;
-    align-items: flex-start;
-  }
-  .page-brand {
-    grid-column: 1;
-    margin-bottom: 8px;
-  }
-  .page-top-inner {
-    grid-column: 1;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 20px;
-  }
-}
 
 .page-nav a:link {
   color: #2f7f88;
@@ -313,7 +274,7 @@ nav a:last-child { margin-right: 0; }
 }
 
 main {
-  max-width: var(--maxw);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 36px 20px 64px;
 }
@@ -351,6 +312,15 @@ article h1 {
   color: var(--muted);
   margin: 0;
   max-width: 720px;
+}
+
+.hero-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  display: block;
 }
 
 .card {
