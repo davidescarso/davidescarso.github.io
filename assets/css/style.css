@@ -295,14 +295,14 @@ article h1 {
 }
 
 .hero p {
-  font-size: 17px;
+  font-size: 15px;
   color: var(--muted);
   margin: 0;
   max-width: 720px;
 }
 
 .random-image-section {
-  margin-top: 24px;
+  margin-top: 14px;
 }
 
 .random-image {
