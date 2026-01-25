@@ -202,6 +202,7 @@ a:active {
   padding: 4px 6px;
   cursor: pointer;
   font-size: 12px;
+  font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   opacity: 0.6;
@@ -272,6 +273,7 @@ nav a:last-child { margin-right: 0; }
   padding: 6px 8px;
   cursor: pointer;
   font-size: 12px;
+  font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   opacity: 0.6;
