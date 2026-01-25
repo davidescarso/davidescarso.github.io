@@ -322,23 +322,6 @@ article h1 {
   max-width: 720px;
 }
 
-.home-name {
-  margin: 0 0 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.home-name a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.home-name a:visited {
-  color: var(--ink);
-}
-
 .random-image-section {
   margin-top: 2px;
 }
