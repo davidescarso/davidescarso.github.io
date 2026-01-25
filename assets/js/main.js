@@ -86,7 +86,9 @@ function setLang(lang) {
   const dict = i18n[lang] || i18n.en;
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key]) el.textContent = dict[key];
+    if (dict[key] && el.textContent !== dict[key]) {
+      el.textContent = dict[key];
+    }
   });
   document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
     const key = el.getAttribute("data-i18n-aria");

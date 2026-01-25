@@ -50,7 +50,7 @@ a:hover {
 }
 
 a:visited {
-  color: #2f7f88 !important;
+  color: #2f7f88;
 }
 
 .home-lang {
@@ -174,7 +174,7 @@ header {
 }
 
 .page-nav a:visited {
-  color: #2f7f88 !important;
+  color: #2f7f88;
 }
 
 .page-nav a:hover {
@@ -192,7 +192,7 @@ nav a {
 }
 
 nav a:visited {
-  color: #2f7f88 !important;
+  color: #2f7f88;
 }
 
 nav a:hover {
@@ -350,6 +350,16 @@ h2 {
 
 .list li:last-child { border-bottom: none; }
 
+.list a,
+.list a:link,
+.list a:visited {
+  color: #2f7f88;
+}
+
+.list a:hover {
+  color: #2a6f77;
+}
+
 .meta {
   color: var(--muted);
   font-size: 14px;
@@ -381,7 +391,7 @@ h2 {
 }
 
 .post-nav a:visited {
-  color: var(--accent-2) !important;
+  color: var(--accent-2);
 }
 
 .post-nav a:hover {
@@ -458,7 +468,7 @@ h2 {
 }
 
 .pagination a:visited {
-  color: #2f7f88 !important;
+  color: #2f7f88;
 }
 
 .pagination a:hover {
