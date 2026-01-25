@@ -1,5 +1,12 @@
 [
   {
+    "title": "[TÍTULO]",
+    "date": "YYYY-MM-DD HH:MM:SS",
+    "lang": "pt",
+    "source": "Facebook",
+    "body_html": "<p>[texto]</p>"
+  },
+  {
     "title": "Elon Musk, a parábola de um “génio”",
     "date": "2025-10-10 00:00:00",
     "lang": "pt",
