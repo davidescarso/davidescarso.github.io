@@ -241,6 +241,7 @@ function initRandomImage() {
 function initNotes() {
   const container = document.getElementById("notes");
   if (!container) return;
+  if (container.dataset.static === "true") return;
   fetch("notes.json")
     .then((res) => res.json())
     .then((notes) => {

@@ -507,6 +507,12 @@ h2 {
   line-height: 1.55;
 }
 
+.read-more {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
 .post-nav {
   display: flex;
   align-items: center;
@@ -565,6 +571,15 @@ h2 {
 .post-item .meta {
   margin: 6px 0 6px;
   line-height: 1.2;
+}
+
+.note-entry {
+  max-width: 720px;
+}
+
+.note-title {
+  font-size: 18px;
+  margin: 0 0 6px;
 }
 
 .post-divider {
