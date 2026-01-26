@@ -474,6 +474,12 @@ h2 {
   margin-top: 0;
 }
 
+.page .meta + .card,
+.page .meta + .list,
+.page .meta + #notes {
+  margin-top: 0;
+}
+
 .excerpt {
   margin: 6px 0 0;
   color: var(--muted);
