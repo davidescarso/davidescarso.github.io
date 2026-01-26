@@ -217,15 +217,20 @@ function initRandomImage() {
       .then((sources) => {
         const file = choice.src.split("/").pop();
         const data = sources[file];
-        if (!data || !data.text) {
+        if (!data || (!data.description && !data.source)) {
           sourceEl.textContent = "";
           return;
         }
-        if (data.url) {
-          sourceEl.innerHTML = `Fonte: <a href="${data.url}">${data.text}</a>`;
-        } else {
-          sourceEl.textContent = `Fonte: ${data.text}`;
+        const parts = [];
+        if (data.description) parts.push(data.description);
+        if (data.source) {
+          if (data.url) {
+            parts.push(`<a href="${data.url}">${data.source}</a>`);
+          } else {
+            parts.push(data.source);
+          }
         }
+        sourceEl.innerHTML = parts.join(" - ");
       })
       .catch(() => {
         sourceEl.textContent = "";
