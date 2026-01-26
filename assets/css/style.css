@@ -497,7 +497,7 @@ h2 {
 .page .meta + .card,
 .page .meta + .list,
 .page .meta + #notes {
-  margin-top: 0;
+  margin-top: -6px;
 }
 
 .excerpt {
