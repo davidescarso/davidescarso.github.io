@@ -67,6 +67,10 @@ body {
   align-items: start;
 }
 
+.page main {
+  gap: 20px;
+}
+
 main > :not(.page-top) {
   grid-column: 2;
 }
@@ -128,9 +132,12 @@ main > :not(.page-top) {
   font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.page-nav a.active {
+.page-nav a.active,
+.page-nav a.active:link,
+.page-nav a.active:visited {
   text-decoration: underline;
   text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
 }
 
 .page-nav a:visited {
@@ -143,6 +150,11 @@ main > :not(.page-top) {
 
 .page-nav a:active {
   color: #2a6f77;
+}
+
+.page-top .meta {
+  margin: 0 0 12px;
+  max-width: 200px;
 }
 
 @media (max-width: 900px) {
