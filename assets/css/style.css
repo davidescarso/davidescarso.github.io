@@ -374,6 +374,18 @@ article h1 {
   box-shadow: none;
 }
 
+.card > *:first-child {
+  margin-top: 0;
+}
+
+.card p {
+  margin: 0 0 14px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
 .lang-block p {
   margin: 0 0 14px;
   line-height: 1.65;
@@ -435,8 +447,16 @@ h2 {
   line-height: 1.55;
 }
 
+.list li:first-child {
+  padding-top: 0;
+}
+
 .pub-item {
   padding: 14px 0;
+}
+
+.pub-item:first-child {
+  padding-top: 0;
 }
 
 .pub-title {
@@ -535,6 +555,10 @@ h2 {
 
 .post-item {
   margin: 14px 0;
+}
+
+.post-item:first-child {
+  margin-top: 0;
 }
 
 .post-item h2 {
