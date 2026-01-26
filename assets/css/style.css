@@ -497,7 +497,7 @@ h2 {
 .page .meta + .card,
 .page .meta + .list,
 .page .meta + #notes {
-  margin-top: -6px;
+  margin-top: 0;
 }
 
 .excerpt {
@@ -554,11 +554,7 @@ h2 {
 }
 
 .post-item {
-  margin: 14px 0;
-}
-
-.post-item:first-child {
-  margin-top: 0;
+  margin: 0;
 }
 
 .post-item h2 {
@@ -575,7 +571,7 @@ h2 {
   border: 0;
   height: 1px;
   background: #efefef;
-  margin: 18px 0;
+  margin: 12px 0;
 }
 
 .post-body {
