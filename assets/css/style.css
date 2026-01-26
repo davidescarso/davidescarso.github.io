@@ -467,7 +467,7 @@ h2 {
 .meta {
   color: var(--muted);
   font-size: 14px;
-  margin: 0 0 4px;
+  margin: 0;
 }
 
 .page .meta {
