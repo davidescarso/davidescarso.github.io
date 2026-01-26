@@ -465,6 +465,10 @@ h2 {
   font-size: 14px;
 }
 
+.page .meta {
+  margin-top: 0;
+}
+
 .excerpt {
   margin: 6px 0 0;
   color: var(--muted);
