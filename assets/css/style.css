@@ -75,6 +75,10 @@ main > :not(.page-top) {
   grid-column: 2;
 }
 
+.page main > :not(.page-top) {
+  padding-top: 33px;
+}
+
 .page-top {
   grid-column: 1;
   grid-row: 1 / span 50;
