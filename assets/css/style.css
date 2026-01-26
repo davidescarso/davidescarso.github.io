@@ -180,14 +180,21 @@ main > :not(.page-top) {
     gap: 24px;
   }
 
+  .page main > :not(.page-top) {
+    padding-top: 0;
+  }
+
   .page-top {
     position: static;
     grid-column: 1;
     grid-row: auto;
+    padding-top: 16px;
   }
 
   .page-brand {
-    display: none;
+    display: block;
+    margin: 0 0 8px;
+    padding-left: 0;
   }
 
   .page-top-inner,
@@ -196,8 +203,20 @@ main > :not(.page-top) {
   }
 
   .home-lang {
-    position: static;
-    align-self: flex-start;
+    display: none;
+  }
+
+  .nav {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand {
+    margin-right: 0;
+  }
+
+  nav a {
+    margin-right: 12px;
   }
 }
 
