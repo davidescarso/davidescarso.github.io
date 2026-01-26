@@ -223,14 +223,13 @@ function initRandomImage() {
         }
         const parts = [];
         if (data.description) parts.push(data.description);
-        if (data.source) {
-          if (data.url) {
-            parts.push(`<a href="${data.url}">${data.source}</a>`);
-          } else {
-            parts.push(data.source);
-          }
+        if (data.source) parts.push(data.source);
+        const text = parts.join(" - ");
+        if (data.url) {
+          sourceEl.innerHTML = `<a href="${data.url}">${text}</a>`;
+        } else {
+          sourceEl.textContent = text;
         }
-        sourceEl.innerHTML = parts.join(" - ");
       })
       .catch(() => {
         sourceEl.textContent = "";
