@@ -81,7 +81,7 @@ def render_note_list_item(note: dict) -> str:
 
     if full_page:
         plain = strip_html(body_html)
-        excerpt = html.escape(build_excerpt(plain))
+        excerpt = html.escape(build_excerpt(plain, 640))
         label = READ_MORE.get(lang, READ_MORE["en"])
         body = (
             f'<div class="post-body">'
