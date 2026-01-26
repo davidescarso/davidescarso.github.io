@@ -574,6 +574,10 @@ footer {
   letter-spacing: 0.3px;
 }
 
+.home footer {
+  padding: 12px 20px 18px;
+}
+
 .image-source {
   margin-top: 6px;
   font-size: 12px;
