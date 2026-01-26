@@ -1,8 +1,8 @@
 {
   "0dea2668-elon-musk.webp": {"source": "Matt Rourke/AP"},
   "1922791.jpeg": {
-    "description": "Workers load palm oil fresh fruit bunches to be transported from the collector site to CPO factories in Pekanbaru, Riau province, Indonesia, April 27, 2022",
-    "source": "REUTERS/Willy Kurniawan",
+    "description": "Workers load palm oil fresh fruit bunches to be transported from the collector site to CPO factories in Pekanbaru, Riau province, Indonesia, April 27, 2022. Reuters/Willy Kurniawan",
+    "source": "Reuters",
     "url": "https://www.reuters.com/markets/commodities/indonesia-mps-seek-palm-oil-export-ban-review-industry-warns-storage-2022-05-19/"
   },
   "440430037_1182898072700370_6561321007850818657_n.jpg": {"description": "Collage que a miúda fez na escola", "source": ""},
@@ -13,8 +13,8 @@
     "url": "https://www.facebook.com/photo.php?fbid=809834821359308&set=a.538742048468588&id=100069983914904"
   },
   "473127227_10236455696642179_7950903120735615375_n.jpg": {
-    "description": "O incêndio devastou o bairro de Pacific Palisades, em Los Angeles, em 7 de janeiro de 2025",
-    "source": "AP - Ethan Swope",
+    "description": "O incêndio devastou o bairro de Pacific Palisades, em Los Angeles, em 7 de janeiro de 2025. AP - Ethan Swope",
+    "source": "RFI",
     "url": "https://www.rfi.fr/br/am%C3%A9ricas/20250113-isso-tudo-%C3%A9-consequ%C3%AAncia-da-crise-clim%C3%A1tica-diz-autor-de-romance-que-previu-inc%C3%AAndios-em-los-angeles"
   },
   "478114996_9189394741149188_4727753969961460943_n.jpg": {
@@ -22,7 +22,11 @@
     "source": "Instagram",
     "url": "https://www.instagram.com/p/DGDgD37RDB6/"
   },
-  "72830959007-afp-2048585802.webp": {"source": "AFP"},
+  "72830959007-afp-2048585802.webp": {
+    "description": " A Palestinian girl carries a child through the rubble of houses destroyed by Israeli bombardment in Gaza City on March 3. AFP/Getty Images", 
+    "source": "CNN"
+    "url": "https://edition.cnn.com/middleeast/live-news/israel-hamas-war-gaza-news-03-13-24/"
+  },
   "alcantara2.jpeg": {"description": "Miradouro de Alcântara (foto minha)", "source": ""},
   "museulagos.jpg": {"description": "Museu da Escravatura, Lagos (foto minha)", "source": ""},
   "no_hope_by_s_h_ores_d5s6l1y-fullview.jpg": {
