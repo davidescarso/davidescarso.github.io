@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 NOTES_JSON = ROOT / "notes.json"
 NOTES_HTML = ROOT / "notas.html"
 NOTES_DIR = ROOT / "notes"
+SITE_URL = "https://davidescarso.github.io"
+OG_IMAGE = f"{SITE_URL}/assets/images/random/alcantara2.jpeg"
 
 READ_MORE = {
     "pt": "Ler mais",
@@ -116,6 +118,9 @@ def render_note_page(note: dict, cache_bust: str) -> str:
     body_html = note.get("body_html", "") or ""
     meta_html = render_meta(note)
     lang = (note.get("lang") or "en").lower()
+    slug = note.get("slug") or slugify(f"{note.get('date','')} {note.get('title','')}")
+    canonical = f"{SITE_URL}/notes/{slug}.html"
+    desc = html.escape(build_excerpt(strip_html(body_html), 200))
 
     return f"""<!DOCTYPE html>
 
@@ -124,6 +129,17 @@ def render_note_page(note: dict, cache_bust: str) -> str:
 <meta charset=\"utf-8\"/>
 <meta content=\"width=device-width, initial-scale=1\" name=\"viewport\"/>
 <title>{title} – Davide Scarso</title>
+<meta name=\"description\" content=\"{desc}\"/>
+<link rel=\"canonical\" href=\"{canonical}\"/>
+<meta property=\"og:title\" content=\"{title} – Davide Scarso\"/>
+<meta property=\"og:description\" content=\"{desc}\"/>
+<meta property=\"og:type\" content=\"article\"/>
+<meta property=\"og:url\" content=\"{canonical}\"/>
+<meta property=\"og:image\" content=\"{OG_IMAGE}\"/>
+<meta name=\"twitter:card\" content=\"summary_large_image\"/>
+<meta name=\"twitter:title\" content=\"{title} – Davide Scarso\"/>
+<meta name=\"twitter:description\" content=\"{desc}\"/>
+<meta name=\"twitter:image\" content=\"{OG_IMAGE}\"/>
 <link href=\"../assets/css/style.css?v={cache_bust}\" rel=\"stylesheet\"/>
 </head>
 <body class=\"page note loading\">

@@ -12,6 +12,11 @@ const i18n = {
     page_title_blog: "Davide Scarso – Notes",
     page_title_about: "Davide Scarso – About",
     page_title_contact: "Davide Scarso – Contact",
+    meta_desc_home: "Teacher and researcher in the humanities. Based in Lisbon, working on contemporary thought, digital society, and the Anthropocene debate.",
+    meta_desc_research: "Peer-reviewed papers, preprints, and working drafts.",
+    meta_desc_blog: "Personal comments and other notes.",
+    meta_desc_about: "Short bio and academic profile.",
+    meta_desc_contact: "Email and institutional affiliation.",
     research_title: "Research & Papers",
     research_intro: "Peer-reviewed papers, and not",
     blog_title: "Notes",
@@ -39,6 +44,11 @@ const i18n = {
     page_title_blog: "Davide Scarso – Notas",
     page_title_about: "Davide Scarso – Sobre",
     page_title_contact: "Davide Scarso – Contato",
+    meta_desc_home: "Professor e investigador em humanidades. Em Lisboa, trabalho sobre pensamento contemporâneo, sociedade digital e o debate do Antropocénico.",
+    meta_desc_research: "Artigos revisados por pares, preprints e textos em andamento.",
+    meta_desc_blog: "Comentários pessoais e outras anotações.",
+    meta_desc_about: "Breve biografia e perfil acadêmico.",
+    meta_desc_contact: "Email e afiliação institucional.",
     research_title: "Pesquisa e Artigos",
     research_intro: "Artigos revisados por pares, e outros nem tanto",
     blog_title: "Notas",
@@ -66,6 +76,11 @@ const i18n = {
     page_title_blog: "Davide Scarso – Note",
     page_title_about: "Davide Scarso – Chi sono",
     page_title_contact: "Davide Scarso – Contatti",
+    meta_desc_home: "Docente e ricercatore in ambito umanistico. A Lisbona, lavoro su pensiero contemporaneo, società digitale e dibattito sull'Antropocene.",
+    meta_desc_research: "Articoli peer‑reviewed, preprint e testi in lavorazione.",
+    meta_desc_blog: "Commenti personali e altre annotazioni.",
+    meta_desc_about: "Breve bio e profilo accademico.",
+    meta_desc_contact: "Email e affiliazione istituzionale.",
     research_title: "Ricerca e Articoli",
     research_intro: "Articoli con peer-review, e altri senza",
     blog_title: "Note",
@@ -93,6 +108,10 @@ function setLang(lang) {
   document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
     const key = el.getAttribute("data-i18n-aria");
     if (dict[key]) el.setAttribute("aria-label", dict[key]);
+  });
+  document.querySelectorAll("[data-i18n-content]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-content");
+    if (dict[key]) el.setAttribute("content", dict[key]);
   });
   const titleEl = document.querySelector("title[data-i18n-title]");
   if (titleEl) {

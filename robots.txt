@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://davidescarso.github.io/sitemap.xml
