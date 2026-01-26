@@ -128,6 +128,11 @@ main > :not(.page-top) {
   font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.page-nav a.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .page-nav a:visited {
   color: #2f7f88;
 }
