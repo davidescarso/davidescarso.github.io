@@ -13,7 +13,7 @@ const i18n = {
     page_title_about: "Davide Scarso – About",
     page_title_contact: "Davide Scarso – Contact",
     research_title: "Research & Papers",
-    research_intro: "Peer-reviewed papers, preprints, and working drafts.",
+    research_intro: "Peer-reviewed papers, and not",
     blog_title: "Notes",
     blog_intro: "Personal comments and other notes.",
     blog_filter_all: "All",
@@ -40,7 +40,7 @@ const i18n = {
     page_title_about: "Davide Scarso – Sobre",
     page_title_contact: "Davide Scarso – Contato",
     research_title: "Pesquisa e Artigos",
-    research_intro: "Artigos revisados por pares, preprints e textos em andamento.",
+    research_intro: "Artigos revisados por pares, e outros nem tanto",
     blog_title: "Notas",
     blog_intro: "Comentários pessoais e outras anotações.",
     blog_filter_all: "Todos",
@@ -60,14 +60,14 @@ const i18n = {
     nav_about: "Chi sono",
     nav_contact: "Contatti",
     hero_title: "Davide Scarso",
-    hero_sub: "Sono nato a Vicenza e vivo a Lisbona. Ho studiato filosofia e lavoro come professore alla NOVA FCT, dove insegno pensiero contemporaneo, società digitale e sociologia dell'educazione. Mi interessano troppe cose, ma tra queste ci sono l'Antropocene, il negazionismo scientifico e, più in generale, gli intrecci tra scienza, tecnologia e politica.",
+    hero_sub: "Sono nato a Vicenza e vivo a Lisbona. Ho studiato filosofia e sono professore alla NOVA FCT, dove insegno pensiero contemporaneo, società digitale e sociologia dell'educazione. Mi interessano troppe cose, ma tra queste ci sono l'Antropocene, il negazionismo scientifico e, più in generale, gli intrecci tra scienza, tecnologia e politica.",
     page_title_home: "Davide Scarso – Home",
     page_title_research: "Davide Scarso – Ricerca",
     page_title_blog: "Davide Scarso – Note",
     page_title_about: "Davide Scarso – Chi sono",
     page_title_contact: "Davide Scarso – Contatti",
     research_title: "Ricerca e Articoli",
-    research_intro: "Articoli peer-reviewed, preprint e testi in lavorazione.",
+    research_intro: "Articoli con peer-review, e altri senza",
     blog_title: "Note",
     blog_intro: "Commenti personali e altre annotazioni.",
     blog_filter_all: "Tutti",
@@ -271,6 +271,10 @@ function initNotes() {
         const body = document.createElement("div");
         body.className = "post-body";
         body.innerHTML = note.body_html || "";
+        const firstPara = body.firstElementChild;
+        if (firstPara && firstPara.tagName === "P" && !firstPara.textContent.trim()) {
+          firstPara.remove();
+        }
         article.appendChild(body);
 
         container.appendChild(article);
