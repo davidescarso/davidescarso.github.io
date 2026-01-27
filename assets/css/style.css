@@ -216,9 +216,8 @@ main > :not(.page-top) {
   }
 
   nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: none;
+    width: 100%;
   }
 
   nav a {
@@ -227,7 +226,25 @@ main > :not(.page-top) {
   }
 
   .lang-toggle {
+    display: none;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
     margin-left: auto;
+  }
+
+  .nav.menu-open nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav.menu-open .lang-toggle {
+    display: flex;
+    gap: 10px;
   }
 }
 
@@ -298,6 +315,17 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 6px 8px;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  color: var(--ink);
 }
 
 .brand {

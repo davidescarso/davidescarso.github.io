@@ -323,10 +323,28 @@ function initEmailObfuscation() {
   });
 }
 
+function initMobileMenu() {
+  const toggle = document.querySelector(".menu-toggle");
+  if (!toggle) return;
+  const nav = toggle.closest(".nav");
+  if (!nav) return;
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("menu-open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.addEventListener("click", (event) => {
+    if (event.target && event.target.tagName === "A") {
+      nav.classList.remove("menu-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   initLang();
   initBlogFilter();
   initNotes();
   initRandomImage();
   initEmailObfuscation();
+  initMobileMenu();
 });
