@@ -322,10 +322,11 @@ header {
   border: 0;
   background: transparent;
   padding: 6px 8px;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
   line-height: 1;
   color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .brand {
