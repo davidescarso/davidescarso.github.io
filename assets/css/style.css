@@ -55,7 +55,7 @@ body {
 @media (max-width: 900px) {
   .home header,
   .page header {
-    display: block;
+    display: none;
   }
 }
 
@@ -177,7 +177,7 @@ main > :not(.page-top) {
   .home main,
   .page main {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 
   .page main > :not(.page-top) {
@@ -193,7 +193,7 @@ main > :not(.page-top) {
 
   .page-brand {
     display: block;
-    margin: 0 0 8px;
+    margin: 0 0 6px;
     padding-left: 0;
   }
 
@@ -592,6 +592,16 @@ h2 {
 
 .post-item {
   margin: 0;
+}
+
+.post-item,
+.post-body,
+.post-body p,
+.post-body a,
+.list a {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .post-item h2 {
