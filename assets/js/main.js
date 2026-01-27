@@ -338,6 +338,12 @@ function initMobileMenu() {
       toggle.setAttribute("aria-expanded", "false");
     }
   });
+  document.addEventListener("click", (event) => {
+    if (!nav.classList.contains("menu-open")) return;
+    if (nav.contains(event.target)) return;
+    nav.classList.remove("menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+  });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
