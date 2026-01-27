@@ -46,78 +46,35 @@ body {
   transition: opacity 0.05s ease-in;
 }
 
-/* Hide header on desktop, show on mobile */
+/* Header always visible */
 .home header,
 .page header {
-  display: none;
-}
-
-@media (max-width: 900px) {
-  .home header,
-  .page header {
-    display: block;
-  }
+  display: block;
 }
 
 .home main,
 .page main {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   align-items: start;
 }
 
-.page main {
-  gap: 20px;
-}
-
-main > :not(.page-top) {
-  grid-column: 2;
-}
-
-.page main > :not(.page-top) {
-  padding-top: 33px;
-}
-
 .page-top {
-  grid-column: 1;
-  grid-row: 1 / span 50;
-  position: sticky;
-  top: 24px;
-  padding: 0;
-  padding-top: 33px;
-  margin: 0;
-  border: 0;
-  background: transparent;
+  display: none;
 }
 
 .page-brand {
-  display: block;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--ink);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  margin-bottom: 20px;
+  display: none;
 }
 
 .page-brand:hover {
   color: #2a6f77;
 }
 
-.page-top-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-
+.page-top-inner,
 .page-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  display: none;
 }
 
 .home-lang {
@@ -127,33 +84,12 @@ main > :not(.page-top) {
   z-index: 10;
 }
 
-.page-nav a {
-  color: #2f7f88;
-  text-transform: lowercase;
-  letter-spacing: 0.2px;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
-}
-
+.page-nav a,
 .page-nav a.active,
-.page-nav a.active:link,
-.page-nav a.active:visited {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-}
-
-.page-nav a:visited {
-  color: #2f7f88;
-}
-
-.page-nav a:hover {
-  color: #2a6f77;
-}
-
+.page-nav a:visited,
+.page-nav a:hover,
 .page-nav a:active {
-  color: #2a6f77;
+  color: inherit;
 }
 
 .sr-only {
@@ -169,82 +105,14 @@ main > :not(.page-top) {
 }
 
 .page-top .meta {
-  margin: 0 0 12px;
-  max-width: 200px;
+  margin: 0;
+  max-width: none;
 }
 
 @media (max-width: 900px) {
   .home main,
   .page main {
-    grid-template-columns: 1fr;
     gap: 16px;
-  }
-
-  .page main > :not(.page-top) {
-    padding-top: 0;
-  }
-
-  .page-top {
-    display: none;
-  }
-
-  .page-brand {
-    display: none;
-  }
-
-  .page-top-inner,
-  .page-nav {
-    align-items: flex-start;
-  }
-
-  .home-lang {
-    display: none;
-  }
-
-  .nav {
-    flex-wrap: wrap;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    gap: 12px;
-  }
-
-  .brand {
-    margin-right: 0;
-    font-size: 18px;
-  }
-
-  nav {
-    display: none;
-    width: 100%;
-  }
-
-  nav a {
-    margin-right: 0;
-    font-size: 14px;
-  }
-
-  .lang-toggle {
-    display: none;
-    width: 100%;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    margin-left: auto;
-  }
-
-  .nav.menu-open nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav.menu-open .lang-toggle {
-    display: flex;
-    gap: 10px;
   }
 }
 
@@ -267,7 +135,7 @@ a:active {
 }
 
 .home-lang {
-  display: flex;
+  display: none;
   justify-content: flex-start;
   gap: 10px;
   margin: 4px 0 28px;
@@ -329,6 +197,18 @@ header {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+.menu-toggle .bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+
+.menu-toggle .bar + .bar {
+  margin-top: 4px;
+}
+
 .brand {
   font-size: 20px;
   font-weight: 600;
@@ -377,6 +257,47 @@ nav a:last-child { margin-right: 0; }
 
 .lang-toggle button.active {
   opacity: 1;
+}
+
+/* Home header: horizontal nav */
+.home header .menu-toggle {
+  display: none;
+}
+
+.home header nav {
+  display: flex;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.home header .lang-toggle {
+  margin-left: 12px;
+}
+
+/* Subpages: hamburger always */
+.page header .menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.page header nav,
+.page header .lang-toggle {
+  display: none;
+  width: 100%;
+}
+
+.page header .nav.menu-open nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.page header .nav.menu-open .lang-toggle {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 main {
