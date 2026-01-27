@@ -55,7 +55,7 @@ body {
 @media (max-width: 900px) {
   .home header,
   .page header {
-    display: none;
+    display: block;
   }
 }
 
@@ -185,16 +185,11 @@ main > :not(.page-top) {
   }
 
   .page-top {
-    position: static;
-    grid-column: 1;
-    grid-row: auto;
-    padding-top: 16px;
+    display: none;
   }
 
   .page-brand {
-    display: block;
-    margin: 0 0 6px;
-    padding-left: 0;
+    display: none;
   }
 
   .page-top-inner,
@@ -207,16 +202,32 @@ main > :not(.page-top) {
   }
 
   .nav {
+    flex-wrap: wrap;
     padding-left: 16px;
     padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    gap: 12px;
   }
 
   .brand {
     margin-right: 0;
+    font-size: 18px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   nav a {
-    margin-right: 12px;
+    margin-right: 0;
+    font-size: 14px;
+  }
+
+  .lang-toggle {
+    margin-left: auto;
   }
 }
 
