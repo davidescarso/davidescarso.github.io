@@ -116,6 +116,37 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .nav nav,
+  .nav .lang-toggle {
+    display: none;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .nav.menu-open nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 8px;
+    margin-left: 0;
+  }
+
+  .nav.menu-open .lang-toggle {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+    margin-left: 0;
+  }
+}
+
 a:link {
   color: #2f7f88;
   text-decoration: none;
@@ -190,16 +221,15 @@ header {
   border: 0;
   background: transparent;
   padding: 6px 8px;
-  font-size: 24px;
+  font-size: 0;
   cursor: pointer;
   line-height: 1;
   color: var(--ink);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .menu-toggle .bar {
   display: block;
-  width: 18px;
+  width: 22px;
   height: 2px;
   background: var(--ink);
   border-radius: 2px;
@@ -259,45 +289,19 @@ nav a:last-child { margin-right: 0; }
   opacity: 1;
 }
 
-/* Home header: horizontal nav */
-.home header .menu-toggle {
-  display: none;
-}
+/* Desktop: horizontal nav for all pages */
+@media (min-width: 901px) {
+  .home header nav,
+  .page header nav {
+    display: flex;
+    gap: 14px;
+    margin-left: auto;
+  }
 
-.home header nav {
-  display: flex;
-  gap: 14px;
-  margin-left: auto;
-}
-
-.home header .lang-toggle {
-  margin-left: 12px;
-}
-
-/* Subpages: hamburger always */
-.page header .menu-toggle {
-  display: inline-flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.page header nav,
-.page header .lang-toggle {
-  display: none;
-  width: 100%;
-}
-
-.page header .nav.menu-open nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.page header .nav.menu-open .lang-toggle {
-  display: flex;
-  gap: 10px;
-  margin-top: 6px;
+  .home header .lang-toggle,
+  .page header .lang-toggle {
+    margin-left: 12px;
+  }
 }
 
 main {
