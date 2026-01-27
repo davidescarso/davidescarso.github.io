@@ -116,35 +116,28 @@ body {
   }
 }
 
-@media (max-width: 900px) {
-  .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    margin-left: auto;
-  }
+/* Menu dropdown (all sizes) */
+.nav nav,
+.nav .lang-toggle {
+  display: none;
+  width: 100%;
+  margin-left: 0;
+}
 
-  .nav nav,
-  .nav .lang-toggle {
-    display: none;
-    width: 100%;
-    margin-left: 0;
-  }
+.nav.menu-open nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+  margin-left: 0;
+}
 
-  .nav.menu-open nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 8px;
-    margin-left: 0;
-  }
-
-  .nav.menu-open .lang-toggle {
-    display: flex;
-    gap: 10px;
-    margin-top: 6px;
-    margin-left: 0;
-  }
+.nav.menu-open .lang-toggle {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  margin-left: 0;
 }
 
 a:link {
@@ -217,26 +210,18 @@ header {
 }
 
 .menu-toggle {
-  display: none;
+  display: inline-flex;
+  align-items: center;
   border: 0;
   background: transparent;
   padding: 6px 8px;
-  font-size: 0;
+  font-size: 14px;
   cursor: pointer;
   line-height: 1;
   color: var(--ink);
-}
-
-.menu-toggle .bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--ink);
-  border-radius: 2px;
-}
-
-.menu-toggle .bar + .bar {
-  margin-top: 4px;
+  font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: lowercase;
+  letter-spacing: 0.2px;
 }
 
 .brand {
@@ -333,22 +318,24 @@ article h1 {
   display: block;
   margin-top: 33px;
   margin-bottom: 6px;
+  text-align: center;
 }
 
 .hero p {
   font-size: 15px;
   color: var(--muted);
-  margin: 0;
+  margin: 0 auto;
   max-width: 720px;
   line-height: 1.55;
 }
 
 .random-image-section {
   margin-top: -10px;
+  text-align: center;
 }
 
 .random-image {
-  margin: 0;
+  margin: 0 auto;
   max-width: 720px;
 }
 
