@@ -146,6 +146,9 @@ body {
     border-radius: 6px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     z-index: 10;
+    align-items: flex-end;
+    text-align: right;
+    min-width: 140px;
   }
 
   .menu-panel nav {
@@ -156,6 +159,7 @@ body {
   .menu-panel .lang-toggle {
     margin-left: 0;
     gap: 10px;
+    justify-content: flex-end;
   }
 
   .menu-panel nav a {
@@ -281,7 +285,7 @@ nav a:visited {
   font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
   text-transform: lowercase;
   letter-spacing: 0.2px;
-  font-weight: 600;
+  font-weight: 400;
   padding-bottom: 2px;
 }
 
@@ -307,6 +311,7 @@ nav a:last-child { margin-right: 0; }
   text-transform: uppercase;
   letter-spacing: 0.6px;
   opacity: 0.6;
+  font-weight: 400;
 }
 
 .lang-toggle button.active {
