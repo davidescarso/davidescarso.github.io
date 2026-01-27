@@ -243,7 +243,7 @@ header {
   cursor: pointer;
   line-height: 1;
   color: var(--ink);
-  font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
   text-transform: lowercase;
   letter-spacing: 0.2px;
 }
@@ -263,7 +263,7 @@ nav a:visited {
   color: #2f7f88;
   margin-right: 14px;
   font-size: 14px;
-  font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
   text-transform: lowercase;
   letter-spacing: 0.2px;
   font-weight: 600;
@@ -288,7 +288,7 @@ nav a:last-child { margin-right: 0; }
   padding: 6px 8px;
   cursor: pointer;
   font-size: 12px;
-  font-family: "Fira Code", "Inter", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   opacity: 0.6;
@@ -317,7 +317,6 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 36px 20px 64px;
-  padding-left: 10px;
 }
 
 article {
@@ -717,6 +716,27 @@ footer {
 
 @media (max-width: 820px) {
   .hero { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .nav nav,
+  .nav .lang-toggle {
+    display: none;
+  }
+
+  .nav.menu-open nav {
+    display: flex;
+  }
+
+  .nav.menu-open .lang-toggle {
+    display: flex;
+  }
 }
 
 @media (max-width: 520px) {
