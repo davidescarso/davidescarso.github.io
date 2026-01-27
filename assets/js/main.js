@@ -323,6 +323,20 @@ function initEmailObfuscation() {
   });
 }
 
+function initMenuPanel() {
+  document.querySelectorAll(".nav").forEach((nav) => {
+    if (nav.querySelector(".menu-panel")) return;
+    const navEl = nav.querySelector("nav");
+    const langEl = nav.querySelector(".lang-toggle");
+    if (!navEl && !langEl) return;
+    const panel = document.createElement("div");
+    panel.className = "menu-panel";
+    if (navEl) panel.appendChild(navEl);
+    if (langEl) panel.appendChild(langEl);
+    nav.appendChild(panel);
+  });
+}
+
 function initMobileMenu() {
   const toggle = document.querySelector(".menu-toggle");
   if (!toggle) return;
@@ -348,6 +362,7 @@ function initMobileMenu() {
 
 window.addEventListener("DOMContentLoaded", () => {
   initLang();
+  initMenuPanel();
   initBlogFilter();
   initNotes();
   initRandomImage();

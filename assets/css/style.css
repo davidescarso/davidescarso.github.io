@@ -119,8 +119,7 @@ body {
 /* Desktop: show nav inline, hide menu button */
 @media (min-width: 901px) {
   .menu-toggle { display: none; }
-  .nav nav { display: flex; gap: 14px; margin-left: auto; }
-  .nav .lang-toggle { margin-left: 12px; }
+  .menu-panel { display: flex; }
 }
 
 /* Mobile: menu dropdown under button */
@@ -131,12 +130,11 @@ body {
     margin-left: auto;
   }
 
-  .nav nav,
-  .nav .lang-toggle {
+  .menu-panel {
     display: none;
   }
 
-  .nav.menu-open nav {
+  .nav.menu-open .menu-panel {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -150,17 +148,18 @@ body {
     z-index: 10;
   }
 
-  .nav.menu-open .lang-toggle {
-    display: flex;
+  .menu-panel nav {
+    flex-direction: column;
     gap: 10px;
-    position: absolute;
-    right: 0;
-    top: calc(100% + 96px);
-    background: rgba(255, 255, 255, 0.98);
-    padding: 8px 12px;
-    border-radius: 6px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    z-index: 10;
+  }
+
+  .menu-panel .lang-toggle {
+    margin-left: 0;
+    gap: 10px;
+  }
+
+  .menu-panel nav a {
+    margin-right: 0;
   }
 }
 
@@ -232,6 +231,22 @@ header {
   justify-content: space-between;
   gap: 16px;
   position: relative;
+}
+
+.menu-panel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.menu-panel nav {
+  display: flex;
+  gap: 14px;
+}
+
+.menu-panel .lang-toggle {
+  margin-left: 12px;
 }
 
 .menu-toggle {
@@ -314,7 +329,7 @@ nav a:last-child { margin-right: 0; }
 }
 
 main {
-  max-width: 1200px;
+  max-width: var(--maxw);
   margin: 0 auto;
   padding: 36px 20px 64px;
 }
