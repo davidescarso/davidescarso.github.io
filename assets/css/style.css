@@ -76,65 +76,51 @@ body {
   }
 }
 
-/* Desktop: show nav inline, hide menu button */
-@media (min-width: 901px) {
-  .menu-toggle { display: none; }
-  .menu-panel { display: flex; }
+/* Menu dropdown: same behavior for all sizes */
+.menu-toggle { display: inline-flex; }
+.menu-panel { display: none; }
+
+.nav.menu-open .menu-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  right: 20px;
+  top: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 10px 12px;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  align-items: flex-end;
+  text-align: right;
+  width: max-content;
 }
 
-/* Mobile: menu dropdown under button */
-@media (max-width: 900px) {
-  .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    margin-left: auto;
-  }
+.menu-panel nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  width: 100%;
+}
 
-  .menu-panel {
-    display: none;
-  }
+.menu-panel .lang-toggle {
+  margin-left: 0;
+  gap: 10px;
+  justify-content: flex-end;
+  width: 100%;
+}
 
-  .nav.menu-open .menu-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    right: 20px;
-    top: 100%;
-    background: rgba(255, 255, 255, 0.98);
-    padding: 10px 12px;
-    border-radius: 6px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    z-index: 10;
-    align-items: flex-end;
-    text-align: right;
-    width: max-content;
-  }
+.menu-panel nav a {
+  margin-right: 0;
+  width: 100%;
+  text-align: right;
+  display: block;
+}
 
-  .menu-panel nav {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
-    width: 100%;
-  }
-
-  .menu-panel .lang-toggle {
-    margin-left: 0;
-    gap: 10px;
-    justify-content: flex-end;
-    width: 100%;
-  }
-
-  .menu-panel nav a {
-    margin-right: 0;
-    width: 100%;
-    text-align: right;
-    display: block;
-  }
-
-  .menu-panel .lang-toggle button {
-    text-align: right;
-  }
+.menu-panel .lang-toggle button {
+  text-align: right;
 }
 
 a:link {
@@ -178,23 +164,7 @@ header {
 }
 
 .menu-panel {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-left: auto;
-}
-
-.menu-panel nav {
-  display: flex;
-  gap: 14px;
-}
-
-.menu-panel .lang-toggle {
-  margin-left: 12px;
-}
-
-.menu-panel nav a {
-  font-size: 14px;
+  display: none;
 }
 
 .menu-toggle {

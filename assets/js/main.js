@@ -386,7 +386,7 @@ function buildExcerpt(text, limit) {
   return `${cut.replace(/\\s+\\S*$/, "")}…`;
 }
 
-function initMobileMenu() {
+function initMenuToggle() {
   const toggle = document.querySelector(".menu-toggle");
   if (!toggle) return;
   const nav = toggle.closest(".nav");
@@ -416,5 +416,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initHomeNotes();
   initRandomImage();
   initEmailObfuscation();
-  initMobileMenu();
+  initMenuToggle();
 });
