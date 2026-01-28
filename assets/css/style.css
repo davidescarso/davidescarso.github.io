@@ -80,6 +80,8 @@ nav {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto;
+  justify-content: center;
 }
 
 nav a + a::before {
@@ -89,12 +91,12 @@ nav a + a::before {
 }
 
 .lang-link {
-  margin-left: auto;
+  margin-left: 16px;
   font-size: 12px;
   font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  color: #2f7f88;
+  color: #9a9690;
   text-decoration: none;
 }
 
@@ -140,7 +142,7 @@ header {
   padding: 16px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
   position: relative;
 }
