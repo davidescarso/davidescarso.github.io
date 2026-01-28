@@ -17,6 +17,8 @@ const i18n = {
     meta_desc_blog: "Personal comments and other notes.",
     meta_desc_about: "Short bio and academic profile.",
     meta_desc_contact: "Email and institutional affiliation.",
+    home_research_more: "See all publications",
+    home_notes_more: "See all notes",
     research_title: "Research & Papers",
     research_intro: "Peer-reviewed papers, and not",
     blog_title: "Notes",
@@ -49,6 +51,8 @@ const i18n = {
     meta_desc_blog: "Comentários pessoais e outras anotações.",
     meta_desc_about: "Breve biografia e perfil acadêmico.",
     meta_desc_contact: "Email e afiliação institucional.",
+    home_research_more: "Ver todas as publicações",
+    home_notes_more: "Ver todas as notas",
     research_title: "Pesquisa e Artigos",
     research_intro: "Artigos revisados por pares, e outros nem tanto",
     blog_title: "Notas",
@@ -81,6 +85,8 @@ const i18n = {
     meta_desc_blog: "Commenti personali e altre annotazioni.",
     meta_desc_about: "Breve bio e profilo accademico.",
     meta_desc_contact: "Email e affiliazione istituzionale.",
+    home_research_more: "Tutte le pubblicazioni",
+    home_notes_more: "Tutte le note",
     research_title: "Ricerca e Articoli",
     research_intro: "Articoli con peer-review, e altri senza",
     blog_title: "Note",
@@ -323,18 +329,61 @@ function initEmailObfuscation() {
   });
 }
 
-function initMenuPanel() {
-  document.querySelectorAll(".nav").forEach((nav) => {
-    if (nav.querySelector(".menu-panel")) return;
-    const navEl = nav.querySelector("nav");
-    const langEl = nav.querySelector(".lang-toggle");
-    if (!navEl && !langEl) return;
-    const panel = document.createElement("div");
-    panel.className = "menu-panel";
-    if (navEl) panel.appendChild(navEl);
-    if (langEl) panel.appendChild(langEl);
-    nav.appendChild(panel);
-  });
+function initHomeNotes() {
+  const container = document.getElementById("home-notes");
+  if (!container) return;
+  fetch("notes.json")
+    .then((res) => res.json())
+    .then((notes) => {
+      const filtered = notes.filter((note) => note.title !== "[TÍTULO]");
+      filtered.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+      const items = filtered.slice(0, 5);
+      container.innerHTML = "";
+      items.forEach((note) => {
+        const item = document.createElement("div");
+        item.className = "note-item";
+
+        const title = document.createElement("div");
+        title.className = "note-title";
+        const link = document.createElement("a");
+        link.textContent = note.title || "";
+        if (note.full_page && note.slug) {
+          link.href = `notes/${note.slug}.html`;
+        } else {
+          link.href = "notas.html";
+        }
+        title.appendChild(link);
+        item.appendChild(title);
+
+        const meta = document.createElement("div");
+        meta.className = "note-meta";
+        const date = (note.date || "").split(" ")[0];
+        meta.textContent = date;
+        item.appendChild(meta);
+
+        const plain = stripHtml(note.body_html || "");
+        const excerpt = buildExcerpt(plain, 240);
+        const excerptEl = document.createElement("p");
+        excerptEl.className = "note-excerpt";
+        excerptEl.textContent = excerpt;
+        item.appendChild(excerptEl);
+
+        container.appendChild(item);
+      });
+    })
+    .catch(() => {
+      container.innerHTML = '<p class="meta">Notes unavailable.</p>';
+    });
+}
+
+function stripHtml(text) {
+  return (text || "").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim();
+}
+
+function buildExcerpt(text, limit) {
+  if (text.length <= limit) return text;
+  const cut = text.slice(0, limit);
+  return `${cut.replace(/\\s+\\S*$/, "")}…`;
 }
 
 function initMobileMenu() {
@@ -362,9 +411,9 @@ function initMobileMenu() {
 
 window.addEventListener("DOMContentLoaded", () => {
   initLang();
-  initMenuPanel();
   initBlogFilter();
   initNotes();
+  initHomeNotes();
   initRandomImage();
   initEmailObfuscation();
   initMobileMenu();
