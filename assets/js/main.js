@@ -135,6 +135,7 @@ function setLang(lang) {
   localStorage.setItem("site-lang", lang);
   syncLangLinks(lang);
   updateLangQuery(lang);
+  updateLangLink(lang);
 
   // Remove loading class to show content
   document.body.classList.remove("loading");
@@ -143,6 +144,7 @@ function setLang(lang) {
 function initLang() {
   const lang = getPreferredLang();
   setLang(lang);
+  updateLangLink(lang);
   document.querySelectorAll(".lang-toggle button, .home-lang button").forEach((btn) => {
     btn.addEventListener("click", () => setLang(btn.dataset.lang));
   });
@@ -183,6 +185,14 @@ function syncLangLinks(lang) {
     const query = params.toString();
     const next = `${path}?${query}${hash}`;
     a.setAttribute("href", next);
+  });
+}
+
+function updateLangLink(lang) {
+  const alt = lang === "pt" ? "en" : "pt";
+  document.querySelectorAll(".lang-link").forEach((link) => {
+    link.textContent = alt.toUpperCase();
+    link.href = `${window.location.pathname}?lang=${alt}`;
   });
 }
 
