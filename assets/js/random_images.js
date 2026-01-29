@@ -1,0 +1,17 @@
+window.RANDOM_IMAGES = [
+  "assets/images/random/0dea2668-elon-musk.webp",
+  "assets/images/random/1922791.jpeg",
+  "assets/images/random/440430037_1182898072700370_6561321007850818657_n.jpg",
+  "assets/images/random/449929117_422100794158735_8911510627448816814_n.jpg",
+  "assets/images/random/458650724_809111731431617_4584681770143956972_n.jpg",
+  "assets/images/random/473127227_10236455696642179_7950903120735615375_n.jpg",
+  "assets/images/random/473432787_10171315865200085_197902774950705204_n.jpg",
+  "assets/images/random/478114996_9189394741149188_4727753969961460943_n.jpg",
+  "assets/images/random/72830959007-afp-2048585802.webp",
+  "assets/images/random/alcantara2.jpeg",
+  "assets/images/random/museulagos.jpg",
+  "assets/images/random/no_hope_by_s_h_ores_d5s6l1y-fullview.jpg",
+  "assets/images/random/photo_2024-05-25_16-03-12.jpg",
+  "assets/images/random/Sem título.jpeg",
+  "assets/images/random/yMB9Rwx.png",
+];

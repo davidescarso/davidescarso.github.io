@@ -223,22 +223,7 @@ function initRandomImage() {
   if (!img) return;
   const section = img.closest(".random-image-section");
   const sourceEl = document.getElementById("imageSource");
-  const images = [
-    { src: "assets/images/random/0dea2668-elon-musk.webp" },
-    { src: "assets/images/random/1922791.jpeg" },
-    { src: "assets/images/random/440430037_1182898072700370_6561321007850818657_n.jpg" },
-    { src: "assets/images/random/449929117_422100794158735_8911510627448816814_n.jpg" },
-    { src: "assets/images/random/458650724_809111731431617_4584681770143956972_n.jpg" },
-    { src: "assets/images/random/473127227_10236455696642179_7950903120735615375_n.jpg" },
-    { src: "assets/images/random/478114996_9189394741149188_4727753969961460943_n.jpg" },
-    { src: "assets/images/random/72830959007-afp-2048585802.webp" },
-    { src: "assets/images/random/alcantara2.jpeg" },
-    { src: "assets/images/random/museulagos.jpg" },
-    { src: "assets/images/random/no_hope_by_s_h_ores_d5s6l1y-fullview.jpg" },
-    { src: "assets/images/random/photo_2024-05-25_16-03-12.jpg" },
-    { src: "assets/images/random/Sem título.jpeg" },
-    { src: "assets/images/random/yMB9Rwx.png" }
-  ];
+  const images = (window.RANDOM_IMAGES || []).map((src) => ({ src }));
   if (!images.length) {
     if (section) section.style.display = "none";
     return;
@@ -246,21 +231,28 @@ function initRandomImage() {
   const choice = images[Math.floor(Math.random() * images.length)];
   img.src = choice.src;
   img.alt = choice.alt || "";
+  const loadSources = () => {
+    if (window.IMAGE_SOURCES) {
+      return Promise.resolve(window.IMAGE_SOURCES);
+    }
+    return fetch("assets/image_sources.json").then((res) => res.json());
+  };
   if (sourceEl) {
-    fetch("assets/image_sources.json")
-      .then((res) => res.json())
+    loadSources()
       .then((sources) => {
         const file = choice.src.split("/").pop();
         const data = sources[file];
-        if (!data || (!data.description && !data.source)) {
+        const desc = data && data.description ? String(data.description).trim() : "";
+        const src = data && data.source ? String(data.source).trim() : "";
+        if (!desc && !src) {
           sourceEl.textContent = "";
           return;
         }
         const parts = [];
-        if (data.description) parts.push(data.description);
-        if (data.source) parts.push(data.source);
+        if (desc) parts.push(desc);
+        if (src) parts.push(src);
         const text = parts.join(" - ");
-        if (data.url) {
+        if (data && data.url) {
           sourceEl.innerHTML = `<a href="${data.url}">${text}</a>`;
         } else {
           sourceEl.textContent = text;
