@@ -364,7 +364,7 @@ function initHomeNotes() {
         item.appendChild(meta);
 
         const plain = stripHtml(note.body_html || "");
-        const excerpt = buildExcerpt(plain, 240);
+        const excerpt = buildExcerpt(plain, 360);
         const excerptEl = document.createElement("p");
         excerptEl.className = "note-excerpt";
         excerptEl.textContent = excerpt;
