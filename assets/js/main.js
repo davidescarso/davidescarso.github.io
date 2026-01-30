@@ -357,7 +357,7 @@ function initHomeNotes() {
         item.appendChild(meta);
 
         const plain = stripHtml(note.body_html || "");
-        const excerpt = buildExcerpt(plain, 360, Boolean(note.full_page && note.slug));
+        const excerpt = buildExcerpt(plain, 360);
         const excerptEl = document.createElement("p");
         excerptEl.className = "note-excerpt";
         excerptEl.textContent = excerpt;
@@ -383,10 +383,10 @@ function stripHtml(text) {
   return (text || "").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim();
 }
 
-function buildExcerpt(text, limit, withEllipsis) {
+function buildExcerpt(text, limit) {
   if (text.length <= limit) return text;
   const cut = text.slice(0, limit);
-  return `${cut.replace(/\\s+\\S*$/, "")}${withEllipsis ? "" : " [...]"}`;
+  return `${cut.replace(/\\s+\\S*$/, "")}`;
 }
 
 function initMenuToggle() {
