@@ -348,6 +348,12 @@ main {
   text-align: justify;
 }
 
+.home-notes .note-more {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
 article {
   font-size: 17px;
   line-height: 1.6;

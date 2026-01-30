@@ -347,14 +347,7 @@ function initHomeNotes() {
 
         const title = document.createElement("div");
         title.className = "note-title";
-        const link = document.createElement("a");
-        link.textContent = note.title || "";
-        if (note.full_page && note.slug) {
-          link.href = `notes/${note.slug}.html`;
-        } else {
-          link.href = "notas.html";
-        }
-        title.appendChild(link);
+        title.textContent = note.title || "";
         item.appendChild(title);
 
         const meta = document.createElement("div");
@@ -369,6 +362,14 @@ function initHomeNotes() {
         excerptEl.className = "note-excerpt";
         excerptEl.textContent = excerpt;
         item.appendChild(excerptEl);
+
+        if (note.full_page && note.slug) {
+          const more = document.createElement("a");
+          more.className = "note-more";
+          more.href = `notes/${note.slug}.html`;
+          more.textContent = "[...]";
+          item.appendChild(more);
+        }
 
         container.appendChild(item);
       });
