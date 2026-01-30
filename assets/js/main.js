@@ -386,7 +386,7 @@ function stripHtml(text) {
 function buildExcerpt(text, limit) {
   if (text.length <= limit) return text;
   const cut = text.slice(0, limit);
-  return `${cut.replace(/\\s+\\S*$/, "")}…`;
+  return `${cut.replace(/\\s+\\S*$/, "")} [...]`;
 }
 
 function initMenuToggle() {
