@@ -357,18 +357,18 @@ function initHomeNotes() {
         item.appendChild(meta);
 
         const plain = stripHtml(note.body_html || "");
-        const excerpt = buildExcerpt(plain, 360);
+        const excerpt = buildExcerpt(plain, 360, Boolean(note.full_page && note.slug));
         const excerptEl = document.createElement("p");
         excerptEl.className = "note-excerpt";
         excerptEl.textContent = excerpt;
         item.appendChild(excerptEl);
-
         if (note.full_page && note.slug) {
           const more = document.createElement("a");
           more.className = "note-more";
           more.href = `notes/${note.slug}.html`;
           more.textContent = "[...]";
-          item.appendChild(more);
+          excerptEl.appendChild(document.createTextNode(" "));
+          excerptEl.appendChild(more);
         }
 
         container.appendChild(item);
@@ -383,10 +383,10 @@ function stripHtml(text) {
   return (text || "").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim();
 }
 
-function buildExcerpt(text, limit) {
+function buildExcerpt(text, limit, withEllipsis) {
   if (text.length <= limit) return text;
   const cut = text.slice(0, limit);
-  return `${cut.replace(/\\s+\\S*$/, "")} [...]`;
+  return `${cut.replace(/\\s+\\S*$/, "")}${withEllipsis ? "" : " [...]"}`;
 }
 
 function initMenuToggle() {
