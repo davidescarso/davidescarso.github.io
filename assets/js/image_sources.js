@@ -1,5 +1,7 @@
 window.IMAGE_SOURCES = {
-  "0dea2668-elon-musk.webp": { "source": "Matt Rourke/AP" },
+  "0dea2668-elon-musk.webp": {
+    "source": "Matt Rourke/AP"
+  },
   "1922791.jpeg": {
     "description": "Workers load palm oil fresh fruit bunches to be transported from the collector site to CPO factories in Pekanbaru, Riau province, Indonesia, April 27, 2022. Reuters/Willy Kurniawan",
     "source": "Reuters",
@@ -32,17 +34,123 @@ window.IMAGE_SOURCES = {
     "source": "CNN",
     "url": "https://edition.cnn.com/middleeast/live-news/israel-hamas-war-gaza-news-03-13-24/"
   },
-  "alcantara2.jpeg": { "description": "Miradouro de Alcantara (foto minha)", "source": "" },
-  "museulagos.jpg": { "description": "Museu da Escravatura, Lagos (foto minha)", "source": "" },
+  "alcantara2.jpeg": {
+    "description": "Miradouro de Alcantara (foto minha)",
+    "source": ""
+  },
+  "museulagos.jpg": {
+    "description": "Museu da Escravatura, Lagos (foto minha)",
+    "source": ""
+  },
   "no_hope_by_s_h_ores_d5s6l1y-fullview.jpg": {
     "source": "S-H Ores",
     "url": "https://www.deviantart.com/s-h-ores/art/No-Hope-349667350"
   },
-  "photo_2024-05-25_16-03-12.jpg": { "description": "(foto minha)", "source": "" },
-  "Sem título.jpeg": { "source": "Made with Grok" },
+  "photo_2024-05-25_16-03-12.jpg": {
+    "description": "(foto minha)",
+    "source": ""
+  },
+  "Sem t\u00edtulo.jpeg": {
+    "source": "Made with Grok"
+  },
   "yMB9Rwx.png": {
     "description": "1993 Canon Ad",
     "source": "Reddit",
     "url": "https://www.reddit.com/r/GODZILLA/comments/12g3xxq/someone_has_this_image_in_good_quality_i_thinkts/?tl=es-es"
+  },
+  "449929117_422100794158735_8911510627448816814_n.xcf": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "473432787_10171315865200085_197902774950705204_n.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "474090.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "5400.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "Acciaio.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "Crisis _What_Crisis _(5968223663).jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "Fig3BeardenTheDove.jpg": {
+    "description": "Romare Bearden, The Dove (1964)",
+    "source": "",
+    "url": ""
+  },
+  "amazon-door.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "centro-logistico-amazon-in-germania-ap.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "choice.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "dor\u00e9_leviathan_cutBN.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "ecopneus.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "el-lissitzky-autoportrait.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "gettingstrange.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "haiti_landfill.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "hausmann2.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "lixeira.jpeg": {
+    "description": "",
+    "source": "",
+    "url": ""
+  },
+  "price_indonesia_lead_008.jpg": {
+    "description": "A worker hacks at at a used car battery with a machete to remove the lead cells for recycling. Image by Larry Price. Indonesia, 2016.",
+    "source": "",
+    "url": ""
+  },
+  "yMB9Rwx.jpg": {
+    "description": "",
+    "source": "",
+    "url": ""
   }
 };
