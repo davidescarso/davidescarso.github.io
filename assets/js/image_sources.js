@@ -64,9 +64,9 @@ window.IMAGE_SOURCES = {
     "url": ""
   },
   "473432787_10171315865200085_197902774950705204_n.jpg": {
-    "description": "",
+    "description": "photo cred: Patrice Maniglier, 2016",
     "source": "",
-    "url": ""
+    "url": "https://www.facebook.com/patrice.maniglier.7/"
   },
   "474090.jpg": {
     "description": "",
@@ -79,14 +79,14 @@ window.IMAGE_SOURCES = {
     "url": ""
   },
   "Acciaio.jpg": {
-    "description": "",
-    "source": "",
-    "url": ""
+    "description": "Sandro, Silver Gelatin Print on watercolor paper.",
+    "source": "Flickr",
+    "url": "https://www.flickr.com/photos/11130121@N03/10670202105/"
   },
   "Crisis _What_Crisis _(5968223663).jpg": {
-    "description": "",
-    "source": "",
-    "url": ""
+    "description": "photo by Michael Coglan",
+    "source": "Flickr",
+    "url": "https://www.flickr.com/photos/mikecogh/5968223663/"
   },
   "Fig3BeardenTheDove.jpg": {
     "description": "Romare Bearden, The Dove (1964)",
@@ -129,9 +129,9 @@ window.IMAGE_SOURCES = {
     "url": ""
   },
   "haiti_landfill.jpg": {
-    "description": "",
-    "source": "",
-    "url": ""
+    "description": "Children and adults scavenge for recyclables and other usable items around a garbage truck at the Trutier dump on the outskirts of Port-au-Prince, on March 7, 2012 in Port-au-Prince, Haiti. ",
+    "source": "(Spencer Platt/Getty Images)",
+    "url": "https://www.nbcnews.com/news/world/haitis-less-fortunate-scavenge-landfills-useful-goods-flna358468"
   },
   "hausmann2.jpg": {
     "description": "",
