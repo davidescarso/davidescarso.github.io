@@ -65,7 +65,7 @@ window.IMAGE_SOURCES = {
   },
   "473432787_10171315865200085_197902774950705204_n.jpg": {
     "description": "photo cred: Patrice Maniglier, 2016",
-    "source": "",
+    "source": "Facebook",
     "url": "https://www.facebook.com/patrice.maniglier.7/"
   },
   "474090.jpg": {
@@ -84,7 +84,7 @@ window.IMAGE_SOURCES = {
     "url": "https://www.flickr.com/photos/11130121@N03/10670202105/"
   },
   "Crisis _What_Crisis _(5968223663).jpg": {
-    "description": "photo by Michael Coglan",
+    "description": "photo by Michael Coglan (detail)",
     "source": "Flickr",
     "url": "https://www.flickr.com/photos/mikecogh/5968223663/"
   },
@@ -129,8 +129,8 @@ window.IMAGE_SOURCES = {
     "url": ""
   },
   "haiti_landfill.jpg": {
-    "description": "Children and adults scavenge for recyclables and other usable items around a garbage truck at the Trutier dump on the outskirts of Port-au-Prince, on March 7, 2012 in Port-au-Prince, Haiti. ",
-    "source": "(Spencer Platt/Getty Images)",
+    "description": "Children and adults scavenge for recyclables and other usable items around a garbage truck at the Trutier dump on the outskirts of Port-au-Prince, on March 7, 2012 in Port-au-Prince, Haiti",
+    "source": "Spencer Platt / Getty Images",
     "url": "https://www.nbcnews.com/news/world/haitis-less-fortunate-scavenge-landfills-useful-goods-flna358468"
   },
   "hausmann2.jpg": {
@@ -145,8 +145,8 @@ window.IMAGE_SOURCES = {
   },
   "price_indonesia_lead_008.jpg": {
     "description": "A worker hacks at at a used car battery with a machete to remove the lead cells for recycling. Image by Larry Price. Indonesia, 2016.",
-    "source": "",
-    "url": ""
+    "source": "Pulitzer Center",
+    "url": "https://pulitzercenter.org/stories/inside-recycling-smelters-java"
   },
   "yMB9Rwx.jpg": {
     "description": "",
