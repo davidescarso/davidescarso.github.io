@@ -290,16 +290,18 @@ main {
 
 .hero-full .image-source {
   position: absolute;
-  left: 20px;
-  right: auto;
+  left: auto;
+  right: calc(100% + 12px);
   bottom: 16px;
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  color: #9a9690;
+  text-shadow: none;
+  width: 150px;
+  text-align: right;
 }
 
 .hero-full .image-source a:link,
 .hero-full .image-source a:visited {
-  color: rgba(255, 255, 255, 0.85);
+  color: #9a9690;
 }
 
 .home-content {
@@ -760,6 +762,13 @@ footer {
 
   .hero-image {
     height: 55vh;
+  }
+
+  .hero-full .image-source {
+    right: auto;
+    left: 12px;
+    width: auto;
+    text-align: left;
   }
 }
 
