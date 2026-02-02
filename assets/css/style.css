@@ -454,6 +454,7 @@ main {
   font-size: 14px;
   line-height: 1.5;
   color: var(--muted);
+  display: inline;
 }
 
 .home-notes .note-more {
