@@ -99,9 +99,9 @@ window.IMAGE_SOURCES = {
     "url": ""
   },
   "centro-logistico-amazon-in-germania-ap.jpg": {
-    "description": "",
-    "source": "",
-    "url": ""
+    "description": "An Amazon logistic centre in Rheinberg, Germany. Photograph: Martin Meissner/AP",
+    "source": "The Guardian",
+    "url": "https://www.theguardian.com/technology/2020/oct/07/eu-lawmakers-ask-jeff-bezos-whether-amazon-spies-on-politicians"
   },
   "choice.jpg": {
     "description": "",
@@ -139,9 +139,9 @@ window.IMAGE_SOURCES = {
     "url": ""
   },
   "lixeira.jpeg": {
-    "description": "",
-    "source": "",
-    "url": ""
+    "description": "‘It feels morally wrong to keep wasting things on such an epic and self-destructive scale.’ Photograph: Phil Noble/PA",
+    "source": "The Guardian",
+    "url": "https://www.theguardian.com/commentisfree/2019/jan/11/mend-eu-right-to-repair-white-goods-planet"
   },
   "price_indonesia_lead_008.jpg": {
     "description": "A worker hacks at at a used car battery with a machete to remove the lead cells for recycling. Image by Larry Price. Indonesia, 2016.",
