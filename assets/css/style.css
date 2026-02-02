@@ -45,6 +45,11 @@ body.loading {
 body {
   transition: opacity 0.05s ease-in;
 }
+@media (max-width: 900px) {
+  body.loading {
+    opacity: 1;
+  }
+}
 
 /* Header always visible */
 .home header,
