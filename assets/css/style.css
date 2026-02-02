@@ -459,8 +459,11 @@ main {
 
 .home-notes .note-more {
   display: inline;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
   vertical-align: baseline;
+  font-size: inherit;
 }
 
 .home-notes .note-excerpt,
