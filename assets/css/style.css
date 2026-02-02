@@ -165,8 +165,20 @@ nav a + a::before {
 }
 
 @media (max-width: 900px) {
+  header {
+    position: sticky;
+  }
+
   .menu-toggle {
-    display: inline-flex;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #d5d2cc;
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--ink);
+    padding: 6px 10px;
+    font-size: 14px;
   }
 
   #site-menu {
