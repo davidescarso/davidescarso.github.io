@@ -138,11 +138,18 @@ nav a + a::before {
 
   #site-menu {
     display: none;
-    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    padding: 8px 0 4px;
+    padding: 8px 0 6px;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    z-index: 6;
   }
 
   .nav.menu-open #site-menu {
@@ -150,8 +157,9 @@ nav a + a::before {
   }
 
   #site-menu a {
-    font-size: 16px;
-    padding: 4px 0;
+    font-size: 14px;
+    padding: 2px 0;
+    color: var(--ink);
   }
 
   #site-menu a + a::before {
@@ -179,6 +187,10 @@ nav a + a::before {
     color: var(--ink);
     padding: 6px 10px;
     font-size: 14px;
+  }
+
+  .nav {
+    position: relative;
   }
 
   #site-menu {
