@@ -346,15 +346,9 @@ function initHomeNotes() {
         const item = document.createElement("div");
         item.className = "note-item";
 
-        const title = document.createElement("div");
-        title.className = "note-title";
-        title.textContent = note.title || "";
-        item.appendChild(title);
-
         const meta = document.createElement("div");
         meta.className = "note-meta";
-        const date = (note.date || "").split(" ")[0];
-        meta.textContent = date;
+        meta.textContent = formatDateTime(note.date || "");
         item.appendChild(meta);
 
         const plain = stripHtml(note.body_html || "");
@@ -378,6 +372,20 @@ function initHomeNotes() {
     .catch(() => {
       container.innerHTML = '<p class="meta">Notes unavailable.</p>';
     });
+}
+
+function formatDateTime(dateRaw) {
+  const raw = String(dateRaw || "");
+  if (!raw) return "";
+  const parts = raw.split(" ");
+  const date = parts[0] || "";
+  if (parts.length < 2) return date;
+  const timePart = parts.slice(1).join(" ").trim();
+  const match = timePart.match(/(\d{1,2}):(\d{2})/);
+  if (!match) return date;
+  const hour = String(match[1]).padStart(2, "0");
+  const minute = match[2];
+  return `${date} ${hour}:${minute}`;
 }
 
 function stripHtml(text) {

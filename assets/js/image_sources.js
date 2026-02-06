@@ -64,9 +64,9 @@ window.IMAGE_SOURCES = {
     "url": "https://www.facebook.com/patrice.maniglier.7/"
   },
   "474090.jpg": {
-    "description": "",
-    "source": "",
-    "url": ""
+    "description": "Pessoas andam sobre escombros próximo a um navio levado para a terra pelas fortes ondas formadas pelo tufão Haiyan em Tacloban, nas Filipinas (Novembro 2013).",
+    "source": "Noel Celis/AFP",
+    "url": "https://www.publico.pt/2013/11/11/mundo/noticia/somos-o-laboratorio-das-catastrofes-naturais-1612113#"
   },
   "5400.jpg": {
     "description": "",
@@ -109,9 +109,9 @@ window.IMAGE_SOURCES = {
     "url": ""
   },
   "ecopneus.jpg": {
-    "description": "",
-    "source": "",
-    "url": ""
+    "description": "Deposito di pneumatici usati 'Ecogomma', Castelletto di Branduzzo (Italia)",
+    "source": "Ecopneus",
+    "url": "https://www.ecopneus.it/news/in-evidenza/fine-anno-piu-sereno-per-l-ambiente-finito-l-incubo-delle-40000-tonnellate-di-pneumatici-abbandonate-vicino-pavia/"
   },
   "el-lissitzky-autoportrait.jpg": {
     "description": "",

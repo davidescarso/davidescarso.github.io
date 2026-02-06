@@ -56,25 +56,38 @@ def get_cache_bust() -> str:
     return match.group(1) if match else "1"
 
 
-def render_meta(note: dict) -> str:
+def render_meta(note: dict, list_view: bool = False) -> str:
     parts: list[str] = []
     date_raw = note.get("date", "") or ""
     date = date_raw.split(" ")[0]
-    lang = (note.get("lang") or "").upper()
-    if date:
-        parts.append(date)
-    if lang:
-        parts.append(f'<span class="lang-tag">{lang}</span>')
-    source = note.get("source")
-    if source:
-        parts.append(source)
+    if list_view:
+        if date_raw and " " in date_raw:
+            time_part = date_raw.split(" ", 1)[1].strip()
+            match = re.search(r"(\d{1,2}):(\d{2})", time_part)
+            if match:
+                hour = int(match.group(1))
+                minute = match.group(2)
+                parts.append(f"{date} {hour:02d}:{minute}")
+            elif date:
+                parts.append(date)
+        elif date:
+            parts.append(date)
+    else:
+        lang = (note.get("lang") or "").upper()
+        if date:
+            parts.append(date)
+        if lang:
+            parts.append(f'<span class="lang-tag">{lang}</span>')
+        source = note.get("source")
+        if source:
+            parts.append(source)
     return " · ".join(parts)
 
 
 def render_note_list_item(note: dict) -> str:
     title = html.escape(note.get("title", "") or "")
     body_html = note.get("body_html", "") or ""
-    meta_html = render_meta(note)
+    meta_html = render_meta(note, list_view=True)
     lang = note.get("lang") or ""
     data_lang = f' data-lang="{html.escape(lang)}"' if lang else ""
 
@@ -96,7 +109,6 @@ def render_note_list_item(note: dict) -> str:
 
     return (
         f'<article class="post-item"{data_lang}>'
-        f'<h2>{title}</h2>'
         f'<p class="meta">{meta_html}</p>'
         f"{body}"
         f"</article>"
@@ -203,7 +215,7 @@ def update_notes_html(notes: list[dict], cache_bust: str) -> None:
     content = re.sub(r'<div id=\"notes\"[^>]*>', '<div id="notes" data-static="true">', content)
     rendered = render_notes_list(notes)
     content = re.sub(
-        r"(<div id=\"notes\"[^>]*>)(.*?)(</div>)",
+        r"(<div id=\"notes\"[^>]*>)(.*?)(</div>\s*</main>)",
         lambda m: f"{m.group(1)}\n{rendered}\n{m.group(3)}",
         content,
         flags=re.DOTALL,
