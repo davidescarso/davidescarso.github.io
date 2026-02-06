@@ -62,6 +62,8 @@ Outras versões existentes (NÃO USAR sem confirmar):
 ### Backups
 - Antes de mudanças estruturais grandes: considerar criar backup com data
   - Exemplo: `cp -r ../davidescarso.github.io_repo3 ../davidescarso.github.io_repo3_backup_YYYYMMDD`
+ - Ao retomar trabalho: consultar `.ai/state.md` e `.ai/decisions.md`
+ - Após reorganizações estruturais: anotar no `.ai/changelog.md` e atualizar `.ai/state.md` (e `Claude.md` se relevante)
 
 ## Preferências de Design (a confirmar com utilizador)
 

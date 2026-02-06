@@ -1,5 +1,12 @@
 # Decisões Arquiteturais (ADR) — Site GitHub (repo3)
 
+## Regras operacionais (2026-02-05)
+**Decisão**
+Ao retomar trabalho, consultar `.ai/state.md` e `.ai/decisions.md`. Após mudanças estruturais, atualizar `.ai/state.md` e, quando relevante, `Claude.md`. Após reorganizações estruturais, anotar no `.ai/changelog.md`.
+
+**Consequências**
+Reduz perda de contexto após hiatos e mantém documentação mínima coerente.
+
 ## ADR-001 — 2026-02-02 — Site estático em HTML puro
 **Contexto**
 O repositório contém páginas HTML estáticas e scripts simples de manutenção, sem SSG.

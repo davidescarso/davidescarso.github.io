@@ -57,6 +57,14 @@ body {
   display: block;
 }
 
+.lang-pending nav {
+  visibility: hidden;
+}
+
+.lang-pending [data-i18n] {
+  visibility: hidden;
+}
+
 .home main,
 .page main {
   display: block;
@@ -396,17 +404,36 @@ main {
 .hero-full .image-source {
   position: absolute;
   left: auto;
-  right: calc(100% + 12px);
-  bottom: 16px;
-  color: #9a9690;
-  text-shadow: none;
-  width: 150px;
+  right: 7px;
+  bottom: 8px;
+  font-size: 9px;
+  color: rgba(215, 210, 204, 0.45);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.025);
+  padding: 3px 6px;
+  border-radius: 4px;
+  width: auto;
   text-align: right;
+  transition: background 150ms ease, text-shadow 150ms ease;
+}
+
+.hero-full .image-source:hover,
+.hero-full .image-source:focus-within {
+  color: #f5f2ec;
+  background: rgba(0, 0, 0, 0.38);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.hero-image:hover .image-source,
+.hero-image:focus-within .image-source {
+  color: #f5f2ec;
+  background: rgba(0, 0, 0, 0.38);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .hero-full .image-source a:link,
 .hero-full .image-source a:visited {
-  color: #9a9690;
+  color: #f1eee8;
 }
 
 .home-content {
@@ -874,10 +901,10 @@ footer {
   }
 
   .hero-full .image-source {
-    right: auto;
-    left: 12px;
+    left: auto;
+    right: 7px;
     width: auto;
-    text-align: left;
+    text-align: right;
   }
 }
 

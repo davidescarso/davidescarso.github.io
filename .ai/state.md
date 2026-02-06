@@ -17,6 +17,8 @@ Site pessoal/ académico hospedado em GitHub Pages, com páginas estáticas (HTM
 - Continuar a uniformizar o design (há inconsistências visuais).
 - Atualizar conteúdo conforme necessário (publicações, notas, etc.).
 - Revalidar se os scripts de geração refletem o estado atual do conteúdo.
+- Ao retomar trabalho: consultar `.ai/state.md` e `.ai/decisions.md`.
+- Após mudanças estruturais, atualizar `.ai/state.md` e, quando relevante, `Claude.md`.
 
 ## Problemas conhecidos
 - Inconsistências de design entre páginas.

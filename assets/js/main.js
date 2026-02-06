@@ -139,6 +139,7 @@ function setLang(lang) {
 
   // Remove loading class to show content
   document.body.classList.remove("loading");
+  document.body.classList.remove("lang-pending");
 }
 
 function initLang() {
@@ -413,6 +414,7 @@ function initMenuToggle() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("lang-pending");
   initLang();
   initBlogFilter();
   initNotes();
