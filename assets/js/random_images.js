@@ -29,6 +29,4 @@ window.RANDOM_IMAGES = [
   "assets/images/random/photo_2024-05-25_16-03-12.jpg",
   "assets/images/random/price_indonesia_lead_008.jpg",
   "assets/images/random/Sem título.jpeg",
-  "assets/images/random/yMB9Rwx.jpg",
-  "assets/images/random/yMB9Rwx.png",
 ];

@@ -53,11 +53,6 @@ window.IMAGE_SOURCES = {
   "Sem t\u00edtulo.jpeg": {
     "source": "Made with Grok"
   },
-  "yMB9Rwx.png": {
-    "description": "1993 Canon Ad",
-    "source": "Reddit",
-    "url": "https://www.reddit.com/r/GODZILLA/comments/12g3xxq/someone_has_this_image_in_good_quality_i_thinkts/?tl=es-es"
-  },
   "449929117_422100794158735_8911510627448816814_n.xcf": {
     "description": "",
     "source": "",
@@ -148,9 +143,4 @@ window.IMAGE_SOURCES = {
     "source": "Pulitzer Center",
     "url": "https://pulitzercenter.org/stories/inside-recycling-smelters-java"
   },
-  "yMB9Rwx.jpg": {
-    "description": "",
-    "source": "",
-    "url": ""
-  }
 };
