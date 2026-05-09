@@ -785,6 +785,30 @@ h2 {
   margin: 0 0 6px;
 }
 
+.essay-item {
+  margin-bottom: 8px;
+}
+
+.essay-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.essay-title a:link,
+.essay-title a:visited {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.essay-title a:hover,
+.essay-title a:active {
+  color: var(--accent-rust-hover);
+  text-decoration: none;
+}
+
 .post-divider {
   border: 0;
   height: 1px;

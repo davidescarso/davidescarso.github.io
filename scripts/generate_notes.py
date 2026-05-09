@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NOTES_JSON = ROOT / "notes.json"
 NOTES_HTML = ROOT / "notas.html"
+ESSAYS_HTML = ROOT / "ensaios.html"
 NOTES_DIR = ROOT / "notes"
 SITE_URL = "https://davidescarso.github.io"
 OG_IMAGE = f"{SITE_URL}/assets/images/random/alcantara2.jpeg"
@@ -54,6 +55,24 @@ def get_cache_bust() -> str:
     content = NOTES_HTML.read_text(encoding="utf-8")
     match = re.search(r"style\.css\?v=([^\"\s]+)", content)
     return match.group(1) if match else "1"
+
+
+def render_essay_list_item(note: dict) -> str:
+    title = html.escape(note.get("title", "") or "")
+    body_html = note.get("body_html", "") or ""
+    date_raw = (note.get("date", "") or "").split(" ")[0]
+    lang = note.get("lang") or ""
+    data_lang = f' data-lang="{html.escape(lang)}"' if lang else ""
+    slug = note.get("slug") or slugify(f"{note.get('date','')} {note.get('title','')}")
+    plain = strip_html(body_html)
+    excerpt = html.escape(build_excerpt(plain, 240))
+    return (
+        f'<article class="post-item essay-item"{data_lang}>'
+        f'<h2 class="essay-title"><a href="notes/{slug}.html">{title}</a></h2>'
+        f'<p class="meta">{date_raw}</p>'
+        f'<p class="excerpt">{excerpt}</p>'
+        f"</article>"
+    )
 
 
 def render_meta(note: dict, list_view: bool = False) -> str:
@@ -117,9 +136,26 @@ def render_note_list_item(note: dict) -> str:
 
 def render_notes_list(notes: list[dict]) -> str:
     items: list[str] = []
-    filtered = [n for n in notes if n.get("title") != "[TÍTULO]"]
+    filtered = [
+        n for n in notes
+        if n.get("title") != "[TÍTULO]" and not n.get("full_page")
+    ]
     for idx, note in enumerate(filtered):
         items.append(render_note_list_item(note))
+        if idx < len(filtered) - 1:
+            items.append('<hr class="post-divider"/>')
+    return "\n".join(items)
+
+
+def render_essays_list(notes: list[dict]) -> str:
+    filtered = [
+        n for n in notes
+        if n.get("title") != "[TÍTULO]" and n.get("full_page")
+    ]
+    filtered.sort(key=lambda n: (n.get("date") or ""), reverse=True)
+    items: list[str] = []
+    for idx, note in enumerate(filtered):
+        items.append(render_essay_list_item(note))
         if idx < len(filtered) - 1:
             items.append('<hr class="post-divider"/>')
     return "\n".join(items)
@@ -159,8 +195,9 @@ def render_note_page(note: dict, cache_bust: str) -> str:
 <div class=\"nav\">
 <a class=\"brand\" href=\"../index.html\">Davide Scarso</a>
 <nav>
+<a data-i18n=\"nav_blog\" href=\"../notas.html\">Notes</a>
+<a class=\"active\" data-i18n=\"nav_essays\" href=\"../ensaios.html\">Essays</a>
 <a data-i18n=\"nav_research\" href=\"../research.html\">Research</a>
-<a data-i18n=\"nav_blog\" href=\"../notas.html\">Blog</a>
 <a data-i18n=\"nav_about\" href=\"../about.html\">About</a>
 <a data-i18n=\"nav_contact\" href=\"../contact.html\">Contact</a>
 </nav>
@@ -175,8 +212,9 @@ def render_note_page(note: dict, cache_bust: str) -> str:
 <a class=\"page-brand\" href=\"../index.html\">Davide Scarso</a>
 <div class=\"page-top-inner\">
 <div class=\"page-nav\">
+<a data-i18n=\"nav_blog\" href=\"../notas.html\">Notes</a>
+<a class=\"active\" data-i18n=\"nav_essays\" href=\"../ensaios.html\">Essays</a>
 <a data-i18n=\"nav_research\" href=\"../research.html\">Research</a>
-<a class=\"active\" data-i18n=\"nav_blog\" href=\"../notas.html\">Blog</a>
 <a data-i18n=\"nav_about\" href=\"../about.html\">About</a>
 <a data-i18n=\"nav_contact\" href=\"../contact.html\">Contact</a>
 </div>
@@ -223,10 +261,26 @@ def update_notes_html(notes: list[dict], cache_bust: str) -> None:
     NOTES_HTML.write_text(content, encoding="utf-8")
 
 
+def update_essays_html(notes: list[dict], cache_bust: str) -> None:
+    if not ESSAYS_HTML.exists():
+        return
+    content = ESSAYS_HTML.read_text(encoding="utf-8")
+    content = re.sub(r'<div id=\"essays\"[^>]*>', '<div id="essays" data-static="true">', content)
+    rendered = render_essays_list(notes)
+    content = re.sub(
+        r"(<div id=\"essays\"[^>]*>)(.*?)(</div>\s*</main>)",
+        lambda m: f"{m.group(1)}\n{rendered}\n{m.group(3)}",
+        content,
+        flags=re.DOTALL,
+    )
+    ESSAYS_HTML.write_text(content, encoding="utf-8")
+
+
 def main() -> None:
     notes = load_notes()
     cache_bust = get_cache_bust()
     update_notes_html(notes, cache_bust)
+    update_essays_html(notes, cache_bust)
     write_note_pages(notes, cache_bust)
 
 

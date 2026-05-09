@@ -3,6 +3,7 @@ const i18n = {
     nav_home: "Home",
     nav_research: "Research",
     nav_blog: "Notes",
+    nav_essays: "Essays",
     nav_about: "About",
     nav_contact: "Contact",
     hero_title: "Davide Scarso",
@@ -10,11 +11,13 @@ const i18n = {
     page_title_home: "Davide Scarso – Home",
     page_title_research: "Davide Scarso – Research",
     page_title_blog: "Davide Scarso – Notes",
+    page_title_essays: "Davide Scarso – Essays",
     page_title_about: "Davide Scarso – About",
     page_title_contact: "Davide Scarso – Contact",
     meta_desc_home: "Teacher and researcher in the humanities. Based in Lisbon, working on contemporary thought, digital society, and the Anthropocene debate.",
     meta_desc_research: "Peer-reviewed papers, preprints, and working drafts.",
     meta_desc_blog: "Personal comments and other notes.",
+    meta_desc_essays: "Long-form writing.",
     meta_desc_about: "Short bio and academic profile.",
     meta_desc_contact: "Email and institutional affiliation.",
     home_research_more: "See all publications",
@@ -23,6 +26,8 @@ const i18n = {
     research_intro: "Peer-reviewed papers, and not",
     blog_title: "Notes",
     blog_intro: "Personal comments and other notes.",
+    essays_title: "Essays",
+    essays_intro: "Long-form writing.",
     blog_filter_all: "All",
     blog_filter_label: "Filter by language",
     page_prev: "Previous",
@@ -37,6 +42,7 @@ const i18n = {
     nav_home: "Início",
     nav_research: "Pesquisa",
     nav_blog: "Notas",
+    nav_essays: "Ensaios",
     nav_about: "Sobre",
     nav_contact: "Contato",
     hero_title: "Davide Scarso",
@@ -44,11 +50,13 @@ const i18n = {
     page_title_home: "Davide Scarso – Início",
     page_title_research: "Davide Scarso – Pesquisa",
     page_title_blog: "Davide Scarso – Notas",
+    page_title_essays: "Davide Scarso – Ensaios",
     page_title_about: "Davide Scarso – Sobre",
     page_title_contact: "Davide Scarso – Contato",
     meta_desc_home: "Professor e investigador em humanidades. Em Lisboa, trabalho sobre pensamento contemporâneo, sociedade digital e o debate do Antropocénico.",
     meta_desc_research: "Artigos revisados por pares, preprints e textos em andamento.",
     meta_desc_blog: "Comentários pessoais e outras anotações.",
+    meta_desc_essays: "Textos longos.",
     meta_desc_about: "Breve biografia e perfil acadêmico.",
     meta_desc_contact: "Email e afiliação institucional.",
     home_research_more: "Ver todas as publicações",
@@ -57,6 +65,8 @@ const i18n = {
     research_intro: "Artigos revisados por pares, e outros nem tanto",
     blog_title: "Notas",
     blog_intro: "Comentários pessoais e outras anotações.",
+    essays_title: "Ensaios",
+    essays_intro: "Textos longos.",
     blog_filter_all: "Todos",
     blog_filter_label: "Filtrar por idioma",
     page_prev: "Anterior",
@@ -71,6 +81,7 @@ const i18n = {
     nav_home: "Home",
     nav_research: "Ricerca",
     nav_blog: "Note",
+    nav_essays: "Saggi",
     nav_about: "Chi sono",
     nav_contact: "Contatti",
     hero_title: "Davide Scarso",
@@ -78,11 +89,13 @@ const i18n = {
     page_title_home: "Davide Scarso – Home",
     page_title_research: "Davide Scarso – Ricerca",
     page_title_blog: "Davide Scarso – Note",
+    page_title_essays: "Davide Scarso – Saggi",
     page_title_about: "Davide Scarso – Chi sono",
     page_title_contact: "Davide Scarso – Contatti",
     meta_desc_home: "Docente e ricercatore in ambito umanistico. A Lisbona, lavoro su pensiero contemporaneo, società digitale e dibattito sull'Antropocene.",
     meta_desc_research: "Articoli peer‑reviewed, preprint e testi in lavorazione.",
     meta_desc_blog: "Commenti personali e altre annotazioni.",
+    meta_desc_essays: "Testi lunghi.",
     meta_desc_about: "Breve bio e profilo accademico.",
     meta_desc_contact: "Email e affiliazione istituzionale.",
     home_research_more: "Tutte le pubblicazioni",
@@ -91,6 +104,8 @@ const i18n = {
     research_intro: "Articoli con peer-review, e altri senza",
     blog_title: "Note",
     blog_intro: "Commenti personali e altre annotazioni.",
+    essays_title: "Saggi",
+    essays_intro: "Testi lunghi.",
     blog_filter_all: "Tutti",
     blog_filter_label: "Filtra per lingua",
     page_prev: "Precedente",
@@ -275,7 +290,7 @@ function initNotes() {
     .then((notes) => {
       const langLabels = { pt: "PT", en: "EN", it: "IT" };
       container.innerHTML = "";
-      const filtered = notes.filter((note) => note.title !== "[TÍTULO]");
+      const filtered = notes.filter((note) => note.title !== "[TÍTULO]" && !note.full_page);
       filtered.forEach((note, idx) => {
         const article = document.createElement("article");
         article.className = "post-item";
@@ -338,7 +353,7 @@ function initHomeNotes() {
   fetch("notes.json")
     .then((res) => res.json())
     .then((notes) => {
-      const filtered = notes.filter((note) => note.title !== "[TÍTULO]");
+      const filtered = notes.filter((note) => note.title !== "[TÍTULO]" && !note.full_page);
       filtered.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
       const items = filtered.slice(0, 5);
       container.innerHTML = "";
@@ -357,14 +372,6 @@ function initHomeNotes() {
         excerptEl.className = "note-excerpt";
         excerptEl.textContent = excerpt;
         item.appendChild(excerptEl);
-        if (note.full_page && note.slug) {
-          const more = document.createElement("a");
-          more.className = "note-more";
-          more.href = `notes/${note.slug}.html`;
-          more.textContent = "[...]";
-          excerptEl.appendChild(document.createTextNode(" "));
-          excerptEl.appendChild(more);
-        }
 
         container.appendChild(item);
       });
