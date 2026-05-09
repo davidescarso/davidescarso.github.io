@@ -129,6 +129,37 @@ nav a + a::before {
   color: #8c8780;
 }
 
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 0;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.lang-switcher .lang-opt:link,
+.lang-switcher .lang-opt:visited {
+  color: #9a9690;
+  text-decoration: none;
+}
+
+.lang-switcher .lang-opt:hover,
+.lang-switcher .lang-opt:active {
+  color: var(--accent-rust);
+  text-decoration: none;
+}
+
+.lang-switcher .lang-opt.active:link,
+.lang-switcher .lang-opt.active:visited {
+  color: var(--accent-rust);
+}
+
+.lang-switcher .lang-sep {
+  color: #c9c4bd;
+}
+
 
 @media (max-width: 700px) {
   nav {
@@ -308,12 +339,13 @@ header {
 }
 
 .brand {
-  font-size: 14px;
+  font-size: 19px;
+  font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
   text-decoration: none;
   color: var(--ink);
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  text-transform: none;
 }
 
 
@@ -812,8 +844,8 @@ h2 {
 .post-divider {
   border: 0;
   height: 1px;
-  background: #efefef;
-  margin: 12px 0;
+  background: #e5e3dd;
+  margin: 20px 0;
 }
 
 .post-body {

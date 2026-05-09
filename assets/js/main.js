@@ -150,7 +150,10 @@ function setLang(lang) {
   localStorage.setItem("site-lang", lang);
   syncLangLinks(lang);
   updateLangQuery(lang);
-  updateLangLink(lang);
+  updateLangSwitcher(lang);
+  document.querySelectorAll(".note-meta[data-date]").forEach((el) => {
+    el.textContent = formatDateTime(el.dataset.date, lang);
+  });
 
   // Remove loading class to show content
   document.body.classList.remove("loading");
@@ -160,9 +163,17 @@ function setLang(lang) {
 function initLang() {
   const lang = getPreferredLang();
   setLang(lang);
-  updateLangLink(lang);
+  updateLangSwitcher(lang);
   document.querySelectorAll(".lang-toggle button, .home-lang button").forEach((btn) => {
     btn.addEventListener("click", () => setLang(btn.dataset.lang));
+  });
+  document.querySelectorAll(".lang-switcher .lang-opt").forEach((opt) => {
+    opt.addEventListener("click", (e) => {
+      const target = opt.dataset.lang;
+      if (!target || !i18n[target]) return;
+      e.preventDefault();
+      setLang(target);
+    });
   });
 }
 
@@ -204,11 +215,13 @@ function syncLangLinks(lang) {
   });
 }
 
-function updateLangLink(lang) {
-  const alt = lang === "pt" ? "en" : "pt";
-  document.querySelectorAll(".lang-link").forEach((link) => {
-    link.textContent = alt.toUpperCase();
-    link.href = `${window.location.pathname}?lang=${alt}`;
+function updateLangSwitcher(lang) {
+  document.querySelectorAll(".lang-switcher .lang-opt").forEach((opt) => {
+    const target = opt.dataset.lang;
+    opt.classList.toggle("active", target === lang);
+    if (target) {
+      opt.href = `${window.location.pathname}?lang=${target}`;
+    }
   });
 }
 
@@ -363,7 +376,9 @@ function initHomeNotes() {
 
         const meta = document.createElement("div");
         meta.className = "note-meta";
-        meta.textContent = formatDateTime(note.date || "");
+        meta.dataset.date = note.date || "";
+        const currentLang = document.documentElement.lang || "en";
+        meta.textContent = formatDateTime(note.date || "", currentLang);
         item.appendChild(meta);
 
         const plain = stripHtml(note.body_html || "");
@@ -381,18 +396,23 @@ function initHomeNotes() {
     });
 }
 
-function formatDateTime(dateRaw) {
+const MONTHS = {
+  pt: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+       "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+  it: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
+       "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],
+  en: ["January", "February", "March", "April", "May", "June",
+       "July", "August", "September", "October", "November", "December"],
+};
+
+function formatDateTime(dateRaw, lang) {
   const raw = String(dateRaw || "");
   if (!raw) return "";
-  const parts = raw.split(" ");
-  const date = parts[0] || "";
-  if (parts.length < 2) return date;
-  const timePart = parts.slice(1).join(" ").trim();
-  const match = timePart.match(/(\d{1,2}):(\d{2})/);
-  if (!match) return date;
-  const hour = String(match[1]).padStart(2, "0");
-  const minute = match[2];
-  return `${date} ${hour}:${minute}`;
+  const datePart = raw.split(" ")[0] || "";
+  const m = datePart.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return datePart;
+  const months = MONTHS[lang] || MONTHS.en;
+  return `${parseInt(m[3], 10)} ${months[parseInt(m[2], 10) - 1]} ${m[1]}`;
 }
 
 function stripHtml(text) {
