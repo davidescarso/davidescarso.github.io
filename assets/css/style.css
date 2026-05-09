@@ -338,7 +338,9 @@ header {
   align-self: flex-start;
 }
 
-.brand {
+.brand,
+.brand:link,
+.brand:visited {
   font-size: 19px;
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
@@ -346,6 +348,12 @@ header {
   color: var(--ink);
   letter-spacing: 0.4px;
   text-transform: none;
+}
+
+.brand:hover,
+.brand:active {
+  color: var(--accent-rust);
+  text-decoration: none;
 }
 
 
