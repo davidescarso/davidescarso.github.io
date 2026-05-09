@@ -25,4 +25,4 @@ Site pessoal/ académico hospedado em GitHub Pages, com páginas estáticas (HTM
 - `notas.html` é potencialmente muito grande; mudanças podem ser lentas.
 
 ## Versão ativa
-- `/home/ds451/site_github/davidescarso.github.io_repo3`
+- `/home/ds451/code/site_github/davidescarso.github.io_repo3`

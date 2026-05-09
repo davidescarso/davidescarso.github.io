@@ -800,6 +800,77 @@ article p {
   margin-bottom: 0;
 }
 
+.post-body pre,
+.note-entry pre {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 12px 0;
+  font-family: "Fira Code", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.post-body code,
+.note-entry code {
+  font-family: "Fira Code", monospace;
+  font-size: 13px;
+  background: #f5f5f5;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.post-body pre code,
+.note-entry pre code {
+  background: none;
+  padding: 0;
+}
+
+.sol-section {
+  margin: 14px 0;
+}
+
+.sol-section strong {
+  display: block;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.sol-title {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.sol-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sol-title a:hover {
+  text-decoration: underline;
+}
+
+.ccaia-badge {
+  background: #e8f4f8;
+  border: 1px solid #b0d0e0;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 0.82em;
+  color: #2c6e8a;
+}
+
+.ccaia-license {
+  font-size: 0.8em;
+  color: #aaa;
+  margin-top: 1.5em;
+}
+
 .pagination {
   display: flex;
   align-items: center;
