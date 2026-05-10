@@ -324,11 +324,18 @@ article.single .cronica-body { margin-bottom: 28px; }
 
 .pub-year { color: var(--muted); font-size: 15px; }
 
-.pub-abstract {
+.pub-excerpt {
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--ink-soft);
-  margin: 8px 0 0;
+  margin: 8px 0 6px;
+}
+
+.pub-meta {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 6px 0 0;
 }
 
 /* Lang blocks (multilingual content)
