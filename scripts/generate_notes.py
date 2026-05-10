@@ -13,10 +13,12 @@ INDEX_HTML = ROOT / "index.html"
 ARQUIVO_HTML = ROOT / "arquivo.html"
 NOTES_HTML = ROOT / "notas.html"
 CRONICAS_HTML = ROOT / "cronicas.html"
+FEED_XML = ROOT / "feed.xml"
 NOTES_DIR = ROOT / "notes"
 SITE_URL = "https://davidescarso.github.io"
 CACHE_BUST = "20260510a"
 HOME_LIMIT = 20
+FEED_LIMIT = 50
 
 LABEL = {
     "cronica": {"pt": "— CRÓNICA", "it": "— CRONACA", "en": "— CHRONICLE"},
@@ -395,6 +397,76 @@ def write_note_pages(notes: list[dict]) -> None:
         path.write_text(render_note_page(note_for_page), encoding="utf-8")
 
 
+import datetime
+import email.utils
+
+
+def to_rfc822(date_str: str) -> str:
+    parts = (date_str or "").split(" ")
+    date_part = parts[0]
+    time_part = parts[1] if len(parts) > 1 else "00:00:00"
+    try:
+        dt = datetime.datetime.strptime(f"{date_part} {time_part[:8]}", "%Y-%m-%d %H:%M:%S")
+        return email.utils.format_datetime(dt.replace(tzinfo=datetime.timezone.utc))
+    except ValueError:
+        return ""
+
+
+def absolutize_paths(html_body: str) -> str:
+    """Converte 'assets/...' relativos em URLs absolutos para RSS."""
+    return re.sub(r'(src|href)="(assets/)', rf'\1="{SITE_URL}/\2', html_body)
+
+
+def feed_item_title(note: dict) -> str:
+    title = (note.get("title") or "").strip()
+    if title:
+        return title
+    plain = strip_html(note.get("body_html", "")).strip()
+    if not plain:
+        return "(sem título)"
+    if len(plain) <= 70:
+        return plain
+    cut = plain[:70].rsplit(" ", 1)[0]
+    return f"{cut}…"
+
+
+def render_rss_item(note: dict) -> str:
+    slug = get_slug(note)
+    link = f"{SITE_URL}/notes/{slug}.html"
+    pub_date = to_rfc822(note.get("date", ""))
+    title = html.escape(feed_item_title(note))
+    body = absolutize_paths(note.get("body_html", "").replace("<!--more-->", ""))
+    return (
+        "<item>\n"
+        f"<title>{title}</title>\n"
+        f"<link>{link}</link>\n"
+        f'<guid isPermaLink="true">{link}</guid>\n'
+        f"<pubDate>{pub_date}</pubDate>\n"
+        f"<description><![CDATA[{body}]]></description>\n"
+        "</item>"
+    )
+
+
+def render_rss(notes: list[dict]) -> str:
+    sorted_notes = sorted(notes, key=lambda n: (n.get("date") or ""), reverse=True)
+    items = [render_rss_item(n) for n in sorted_notes[:FEED_LIMIT]]
+    now = email.utils.format_datetime(datetime.datetime.now(datetime.timezone.utc))
+    items_xml = "\n".join(items)
+    return f"""<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>davide scarso</title>
+<link>{SITE_URL}/</link>
+<description>Crónicas, excertos e notas.</description>
+<language>pt-PT</language>
+<lastBuildDate>{now}</lastBuildDate>
+<atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+{items_xml}
+</channel>
+</rss>
+"""
+
+
 def main() -> None:
     notes = load_notes()
     update_html_page(INDEX_HTML, "latest", render_mixed(notes, limit=HOME_LIMIT))
@@ -402,6 +474,7 @@ def main() -> None:
     update_html_page(NOTES_HTML, "notes", render_filtered(notes, "nota"))
     update_html_page(CRONICAS_HTML, "cronicas", render_filtered(notes, "cronica"))
     write_note_pages(notes)
+    FEED_XML.write_text(render_rss(notes), encoding="utf-8")
 
 
 if __name__ == "__main__":
