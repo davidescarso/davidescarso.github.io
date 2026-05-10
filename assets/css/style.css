@@ -225,7 +225,7 @@ a:hover {
   line-height: 1;
   letter-spacing: 0;
   color: var(--rust);
-  margin: 96px 0;
+  margin: 64px 0;
   user-select: none;
 }
 
@@ -358,7 +358,7 @@ footer.col {
   .col { max-width: none; padding: 0 24px; }
   header.col { padding-top: 36px; flex-wrap: wrap; gap: 12px; }
   main.col { padding-top: 56px; }
-  .sep { margin: 72px 0; }
+  .sep { margin: 48px 0; }
   .cronica-title { font-size: 24px; }
   footer.col { margin-top: 72px; padding-top: 36px; }
 }
