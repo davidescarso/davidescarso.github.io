@@ -122,12 +122,64 @@ def beautify_url_links(body: str) -> str:
     return URL_AS_TEXT_RE.sub(r'<a\1href="\2"\3>Link ↗</a>', body)
 
 
+def get_image_size(path: Path) -> tuple[int, int] | None:
+    """Devolve (w, h) para PNG/WebP. None se não detectável."""
+    if not path.exists():
+        return None
+    import struct
+    data = path.read_bytes()[:32]
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        w = struct.unpack(">I", data[16:20])[0]
+        h = struct.unpack(">I", data[20:24])[0]
+        return w, h
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        chunk = data[12:16]
+        if chunk == b"VP8L":
+            n = struct.unpack("<I", data[21:25])[0]
+            return ((n & 0x3FFF) + 1, ((n >> 14) & 0x3FFF) + 1)
+        if chunk == b"VP8 ":
+            w = struct.unpack("<H", data[26:28])[0] & 0x3FFF
+            h = struct.unpack("<H", data[28:30])[0] & 0x3FFF
+            return w, h
+        if chunk == b"VP8X":
+            w = (data[24] | data[25] << 8 | data[26] << 16) + 1
+            h = (data[27] | data[28] << 8 | data[29] << 16) + 1
+            return w, h
+    return None
+
+
+def auto_class_figure(body: str) -> str:
+    """Adiciona class='figure-wide' a figures com imagens panorâmicas (W/H > 1.3)."""
+    def repl(m: re.Match) -> str:
+        attrs, inner = m.group(1), m.group(2)
+        src_match = re.search(r'src="([^"]+)"', inner)
+        if not src_match:
+            return m.group(0)
+        src = src_match.group(1)
+        if src.startswith("http"):
+            return m.group(0)
+        path = ROOT / src.lstrip("/").lstrip("./")
+        size = get_image_size(path)
+        if not size or size[1] == 0:
+            return m.group(0)
+        if size[0] / size[1] <= 1.3:
+            return m.group(0)
+        if 'class="' in attrs:
+            new_attrs = re.sub(r'class="([^"]*)"', r'class="\1 figure-wide"', attrs)
+        else:
+            new_attrs = attrs + ' class="figure-wide"'
+        return f"<figure{new_attrs}>{inner}</figure>"
+    return re.sub(r"<figure([^>]*)>(.*?)</figure>", repl, body, flags=re.DOTALL)
+
+
 def load_notes() -> list[dict]:
     notes = json.loads(NOTES_JSON.read_text(encoding="utf-8"))
     notes = [n for n in notes if n.get("title") != "[TÍTULO]"]
     for n in notes:
         if n.get("body_html"):
-            n["body_html"] = beautify_url_links(n["body_html"])
+            body = beautify_url_links(n["body_html"])
+            body = auto_class_figure(body)
+            n["body_html"] = body
     return notes
 
 

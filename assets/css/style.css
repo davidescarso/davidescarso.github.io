@@ -181,6 +181,14 @@ a:hover {
   margin: 4px 28px 16px 0;
 }
 
+.entry figure.figure-wide,
+.cronica-body figure.figure-wide,
+.nota-body figure.figure-wide,
+.excerto-body figure.figure-wide {
+  max-width: 400px;
+  width: 50%;
+}
+
 .entry figure img,
 .cronica-body figure img,
 .nota-body figure img,
