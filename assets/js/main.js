@@ -191,7 +191,9 @@ function initEmailObfuscation() {
     const tld = link.dataset.emailTld || "";
     if (!user || !domain || !tld) return;
     const address = `${user}@${domain}.${tld}`;
-    link.textContent = address;
+    if (!link.dataset.emailKeepLabel) {
+      link.textContent = address;
+    }
     link.setAttribute("href", `mailto:${address}`);
   });
 }

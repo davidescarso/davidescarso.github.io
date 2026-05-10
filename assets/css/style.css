@@ -349,6 +349,12 @@ article.single .cronica-body { margin-bottom: 28px; }
 .lang-block { display: none; }
 .lang-block.show { display: block; }
 
+.lang-block p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
 /* Footer
    ---------------------------------------------- */
 
