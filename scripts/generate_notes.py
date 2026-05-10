@@ -319,7 +319,7 @@ def render_note_page(note: dict) -> str:
     )
     body_cls = {"cronica": "cronica-body", "excerto": "excerto-body", "nota": "nota-body"}[kind]
     article_cls = f"entry {kind} single"
-    page_title = title if title else "Davide Scarso"
+    page_title = title if title else "davide scarso"
     back = BACK.get(lang, BACK["en"])
 
     return f"""<!DOCTYPE html>
@@ -327,10 +327,10 @@ def render_note_page(note: dict) -> str:
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>{page_title} – Davide Scarso</title>
+<title>{page_title} – davide scarso</title>
 <meta name="description" content="{desc}"/>
 <link rel="canonical" href="{canonical}"/>
-<meta property="og:title" content="{page_title} – Davide Scarso"/>
+<meta property="og:title" content="{page_title} – davide scarso"/>
 <meta property="og:description" content="{desc}"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="{canonical}"/>
