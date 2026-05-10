@@ -17,11 +17,11 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-family: "Bitstream Charter", Charter, "Noto Serif", Cambria, Georgia, serif;
   font-weight: 400;
   font-size: 19px;
-  line-height: 1.7;
-  letter-spacing: -0.1px;
+  line-height: 1.65;
+  letter-spacing: 0;
 }
 
 body.lang-pending nav,
@@ -165,8 +165,8 @@ a:hover {
 
 .nota-body {
   font-size: 19px;
-  line-height: 1.7;
-  letter-spacing: -0.1px;
+  line-height: 1.65;
+  letter-spacing: 0;
   color: var(--ink);
   margin: 0 0 24px;
 }
@@ -176,8 +176,8 @@ a:hover {
 
 .excerto-body {
   font-size: 18px;
-  line-height: 1.7;
-  letter-spacing: -0.1px;
+  line-height: 1.65;
+  letter-spacing: 0;
   color: var(--ink-soft);
   border-left: 2px solid var(--rule);
   padding-left: 20px;
