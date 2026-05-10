@@ -28,7 +28,7 @@ body.lang-pending nav,
 body.lang-pending [data-i18n] { visibility: hidden; }
 
 .col {
-  max-width: 580px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 0 24px;
 }
