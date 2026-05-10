@@ -228,12 +228,18 @@ def update_html_page(path: Path, div_id: str, inner: str) -> None:
     path.write_text(new, encoding="utf-8")
 
 
+def rewrite_paths_for_subdir(body: str) -> str:
+    """For pages inside /notes/, rewrite root-relative asset paths to ../assets/."""
+    return re.sub(r'(src|href)="(assets/)', r'\1="../\2', body)
+
+
 def render_note_page(note: dict) -> str:
     lang = (note.get("lang") or "en").lower()
     title = html.escape(note.get("title") or "")
     slug = get_slug(note)
     body_html = note.get("body_html", "") or ""
     body_clean = body_html.replace("<!--more-->", "")
+    body_clean = rewrite_paths_for_subdir(body_clean)
     date = format_date(note.get("date", ""), lang)
     canonical = f"{SITE_URL}/notes/{slug}.html"
     desc = html.escape(strip_html(body_clean)[:200])
