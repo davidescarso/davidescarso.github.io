@@ -19,6 +19,7 @@ CACHE_BUST = "20260510a"
 LABEL = {
     "cronica": {"pt": "— CRÓNICA", "it": "— CRONACA", "en": "— CHRONICLE"},
     "nota":    {"pt": "— NOTA",    "it": "— NOTA",    "en": "— NOTE"},
+    "excerto": {"pt": "— EXCERTO", "it": "— ESTRATTO", "en": "— EXCERPT"},
 }
 
 CONTINUE = {"pt": "continuar a ler →", "it": "continuare a leggere →", "en": "continue reading →"}
@@ -61,6 +62,18 @@ def format_date(date_str: str, lang: str) -> str:
 
 def is_cronica(note: dict) -> bool:
     return note.get("category") == "cronica" or bool(note.get("full_page"))
+
+
+def is_excerto(note: dict) -> bool:
+    return note.get("category") == "excerto"
+
+
+def kind_of(note: dict) -> str:
+    if is_cronica(note):
+        return "cronica"
+    if is_excerto(note):
+        return "excerto"
+    return "nota"
 
 
 def get_slug(note: dict) -> str:
@@ -143,9 +156,25 @@ def render_nota_block(note: dict) -> str:
     )
 
 
+def render_excerto_block(note: dict) -> str:
+    lang = (note.get("lang") or "en").lower()
+    body = note.get("body_html", "")
+    date = format_date(note.get("date", ""), lang)
+    return (
+        f'<article class="entry excerto" data-lang="{html.escape(lang)}">'
+        f'{render_label("excerto", lang)}'
+        f'<div class="excerto-body">{body}</div>'
+        f'<div class="nota-foot">{html.escape(date)}</div>'
+        f'</article>'
+    )
+
+
 def render_block(note: dict) -> str:
-    if is_cronica(note):
+    kind = kind_of(note)
+    if kind == "cronica":
         return render_cronica_block(note)
+    if kind == "excerto":
+        return render_excerto_block(note)
     return render_nota_block(note)
 
 
@@ -200,15 +229,15 @@ def render_note_page(note: dict) -> str:
     date = format_date(note.get("date", ""), lang)
     canonical = f"{SITE_URL}/notes/{slug}.html"
     desc = html.escape(strip_html(body_clean)[:200])
-    kind = "cronica" if is_cronica(note) else "nota"
+    kind = kind_of(note)
     label_text = label_for(kind, lang)
-    label_cls = "label cronica" if is_cronica(note) else "label"
+    label_cls = f"label {kind}" if kind in ("cronica", "excerto") else "label"
     title_block = (
         f'<h1 class="cronica-title">{title}</h1>'
-        if is_cronica(note) else ""
+        if kind == "cronica" else ""
     )
-    body_cls = "cronica-body" if is_cronica(note) else "nota-body"
-    article_cls = "entry cronica single" if is_cronica(note) else "entry nota single"
+    body_cls = {"cronica": "cronica-body", "excerto": "excerto-body", "nota": "nota-body"}[kind]
+    article_cls = f"entry {kind} single"
     page_title = title if title else "Davide Scarso"
     back = BACK.get(lang, BACK["en"])
 
