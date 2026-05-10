@@ -221,8 +221,9 @@ a:hover {
 
 .sep {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
+  letter-spacing: 4px;
   color: var(--rust);
   margin: 96px 0;
   user-select: none;
