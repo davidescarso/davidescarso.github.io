@@ -129,16 +129,20 @@ def render_cronica_block(note: dict) -> str:
     lang = (note.get("lang") or "en").lower()
     title = html.escape(note.get("title", ""))
     slug = get_slug(note)
-    intro_html, _ = extract_intro(note.get("body_html", ""))
+    intro_html, was_cut = extract_intro(note.get("body_html", ""))
     date = format_date(note.get("date", ""), lang)
     cont = CONTINUE.get(lang, CONTINUE["en"])
+    foot_left = (
+        f'<a class="continue-link" href="notes/{slug}.html">{html.escape(cont)}</a>'
+        if was_cut else '<span></span>'
+    )
     return (
         f'<article class="entry cronica" data-lang="{html.escape(lang)}">'
         f'{render_label("cronica", lang)}'
         f'<h2 class="cronica-title"><a href="notes/{slug}.html">{title}</a></h2>'
         f'<div class="cronica-body">{intro_html}</div>'
         f'<div class="entry-foot">'
-        f'<a class="continue-link" href="notes/{slug}.html">{html.escape(cont)}</a>'
+        f'{foot_left}'
         f'<span class="date">{html.escape(date)}</span>'
         f'</div>'
         f'</article>'
