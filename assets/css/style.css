@@ -248,12 +248,18 @@ a:hover {
 
 .continue-link,
 .continue-link:link,
-.continue-link:visited {
+.continue-link:visited,
+.entry-foot a.continue-link,
+.entry-foot a.continue-link:link,
+.entry-foot a.continue-link:visited {
   color: var(--rust);
   text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.3px;
 }
 
-.continue-link:hover { color: var(--rust-hover); text-decoration: none; }
+.continue-link:hover,
+.entry-foot a.continue-link:hover { color: var(--rust-hover); text-decoration: none; }
 
 .date { color: var(--muted); }
 
