@@ -365,14 +365,6 @@ footer.col {
   border-top: 0.5px solid var(--rule);
 }
 
-.lang-block p.colophon,
-p.colophon {
-  font-size: 14px;
-  line-height: 1.5;
-  font-style: italic;
-  color: var(--muted);
-  margin-top: 32px;
-}
 
 .footer-bar {
   display: flex;
