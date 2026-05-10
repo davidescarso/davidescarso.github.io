@@ -1,119 +1,71 @@
 const i18n = {
   en: {
-    nav_home: "Home",
-    nav_research: "Research",
-    nav_blog: "Notes",
-    nav_essays: "Essays",
-    nav_about: "About",
-    nav_contact: "Contact",
-    hero_title: "Davide Scarso",
-    hero_sub: "I was born in Vicenza, Italy, and live in Lisbon. I studied philosophy and work as a professor at NOVA FCT, where I teach contemporary thought, digital society, and sociology of education. I'm interested in too many things, among them the Anthropocene, science denial, and, more broadly, the entanglements of science, technology, and politics.",
-    page_title_home: "Davide Scarso – Home",
+    nav_notas: "notes",
+    nav_cronicas: "chronicles",
+    nav_research: "research",
+    nav_about: "about",
+    nav_contact: "contact",
+    page_title_home: "Davide Scarso",
+    page_title_notas: "Davide Scarso – Notes",
+    page_title_cronicas: "Davide Scarso – Chronicles",
     page_title_research: "Davide Scarso – Research",
-    page_title_blog: "Davide Scarso – Notes",
-    page_title_essays: "Davide Scarso – Essays",
     page_title_about: "Davide Scarso – About",
     page_title_contact: "Davide Scarso – Contact",
-    meta_desc_home: "Teacher and researcher in the humanities. Based in Lisbon, working on contemporary thought, digital society, and the Anthropocene debate.",
+    meta_desc_home: "Chronicles and notes.",
+    meta_desc_notas: "Short notes.",
+    meta_desc_cronicas: "Long-form writing.",
     meta_desc_research: "Peer-reviewed papers, preprints, and working drafts.",
-    meta_desc_blog: "Personal comments and other notes.",
-    meta_desc_essays: "Long-form writing.",
     meta_desc_about: "Short bio and academic profile.",
     meta_desc_contact: "Email and institutional affiliation.",
-    home_research_more: "See all publications",
-    home_notes_more: "See all notes",
-    research_title: "Research & Papers",
-    research_intro: "Peer-reviewed papers, and not",
-    blog_title: "Notes",
-    blog_intro: "Personal comments and other notes.",
-    essays_title: "Essays",
-    essays_intro: "Long-form writing.",
-    blog_filter_all: "All",
-    blog_filter_label: "Filter by language",
-    page_prev: "Previous",
-    page_next: "Next",
-    about_title: "About",
-    about_intro: "Short bio and academic profile.",
-    contact_title: "Contact",
-    contact_intro: "Email and institutional affiliation.",
+    archive_link: "full archive →",
+    back_archive: "← archive",
+    footer_quote: "They used to be on Facebook. A month locked out, with no explanation, made me move house.",
     lang_label: "Language"
   },
   pt: {
-    nav_home: "Início",
-    nav_research: "Pesquisa",
-    nav_blog: "Notas",
-    nav_essays: "Ensaios",
-    nav_about: "Sobre",
-    nav_contact: "Contato",
-    hero_title: "Davide Scarso",
-    hero_sub: "Nasci em Vicenza, na Itália, e vivo em Lisboa. Formei-me me filosofia e trabalho como professor na NOVA FCT, onde dou aulas sobre pensamento contemporâneo, sociedade digital e sociologia da educação. Interessam-me demasiadas coisas, entre elas o Antropocénico, o negacionismo científico e, mais em geral, os cruzamentos entre ciências, tecnologia e política.",
-    page_title_home: "Davide Scarso – Início",
+    nav_notas: "notas",
+    nav_cronicas: "crónicas",
+    nav_research: "pesquisa",
+    nav_about: "sobre",
+    nav_contact: "contato",
+    page_title_home: "Davide Scarso",
+    page_title_notas: "Davide Scarso – Notas",
+    page_title_cronicas: "Davide Scarso – Crónicas",
     page_title_research: "Davide Scarso – Pesquisa",
-    page_title_blog: "Davide Scarso – Notas",
-    page_title_essays: "Davide Scarso – Ensaios",
     page_title_about: "Davide Scarso – Sobre",
     page_title_contact: "Davide Scarso – Contato",
-    meta_desc_home: "Professor e investigador em humanidades. Em Lisboa, trabalho sobre pensamento contemporâneo, sociedade digital e o debate do Antropocénico.",
+    meta_desc_home: "Crónicas e notas.",
+    meta_desc_notas: "Notas curtas.",
+    meta_desc_cronicas: "Textos longos.",
     meta_desc_research: "Artigos revisados por pares, preprints e textos em andamento.",
-    meta_desc_blog: "Comentários pessoais e outras anotações.",
-    meta_desc_essays: "Textos longos.",
-    meta_desc_about: "Breve biografia e perfil acadêmico.",
+    meta_desc_about: "Breve biografia e perfil académico.",
     meta_desc_contact: "Email e afiliação institucional.",
-    home_research_more: "Ver todas as publicações",
-    home_notes_more: "Ver todas as notas",
-    research_title: "Pesquisa e Artigos",
-    research_intro: "Artigos revisados por pares, e outros nem tanto",
-    blog_title: "Notas",
-    blog_intro: "Comentários pessoais e outras anotações.",
-    essays_title: "Ensaios",
-    essays_intro: "Textos longos.",
-    blog_filter_all: "Todos",
-    blog_filter_label: "Filtrar por idioma",
-    page_prev: "Anterior",
-    page_next: "Seguinte",
-    about_title: "Sobre",
-    about_intro: "Breve biografia e perfil acadêmico.",
-    contact_title: "Contato",
-    contact_intro: "Email e afiliação institucional.",
+    archive_link: "arquivo completo →",
+    back_archive: "← arquivo",
+    footer_quote: "Antes estavam no Facebook. Um mês de bloqueio sem explicação fez-me mudar de casa.",
     lang_label: "Idioma"
   },
   it: {
-    nav_home: "Home",
-    nav_research: "Ricerca",
-    nav_blog: "Note",
-    nav_essays: "Saggi",
-    nav_about: "Chi sono",
-    nav_contact: "Contatti",
-    hero_title: "Davide Scarso",
-    hero_sub: "Sono nato a Vicenza e vivo a Lisbona. Ho studiato filosofia e sono professore alla NOVA FCT, dove insegno pensiero contemporaneo, società digitale e sociologia dell'educazione. Mi interessano troppe cose, ma tra queste ci sono l'Antropocene, il negazionismo scientifico e, più in generale, gli intrecci tra scienza, tecnologia e politica.",
-    page_title_home: "Davide Scarso – Home",
+    nav_notas: "note",
+    nav_cronicas: "cronache",
+    nav_research: "ricerca",
+    nav_about: "chi sono",
+    nav_contact: "contatti",
+    page_title_home: "Davide Scarso",
+    page_title_notas: "Davide Scarso – Note",
+    page_title_cronicas: "Davide Scarso – Cronache",
     page_title_research: "Davide Scarso – Ricerca",
-    page_title_blog: "Davide Scarso – Note",
-    page_title_essays: "Davide Scarso – Saggi",
     page_title_about: "Davide Scarso – Chi sono",
     page_title_contact: "Davide Scarso – Contatti",
-    meta_desc_home: "Docente e ricercatore in ambito umanistico. A Lisbona, lavoro su pensiero contemporaneo, società digitale e dibattito sull'Antropocene.",
-    meta_desc_research: "Articoli peer‑reviewed, preprint e testi in lavorazione.",
-    meta_desc_blog: "Commenti personali e altre annotazioni.",
-    meta_desc_essays: "Testi lunghi.",
+    meta_desc_home: "Cronache e note.",
+    meta_desc_notas: "Note brevi.",
+    meta_desc_cronicas: "Testi lunghi.",
+    meta_desc_research: "Articoli peer-reviewed, preprint e testi in lavorazione.",
     meta_desc_about: "Breve bio e profilo accademico.",
     meta_desc_contact: "Email e affiliazione istituzionale.",
-    home_research_more: "Tutte le pubblicazioni",
-    home_notes_more: "Tutte le note",
-    research_title: "Ricerca e Articoli",
-    research_intro: "Articoli con peer-review, e altri senza",
-    blog_title: "Note",
-    blog_intro: "Commenti personali e altre annotazioni.",
-    essays_title: "Saggi",
-    essays_intro: "Testi lunghi.",
-    blog_filter_all: "Tutti",
-    blog_filter_label: "Filtra per lingua",
-    page_prev: "Precedente",
-    page_next: "Successivo",
-    about_title: "Chi sono",
-    about_intro: "Breve bio e profilo accademico.",
-    contact_title: "Contatti",
-    contact_intro: "Email e affiliazione istituzionale.",
+    archive_link: "archivio completo →",
+    back_archive: "← archivio",
+    footer_quote: "Prima erano su Facebook. Un mese di blocco senza spiegazioni mi ha fatto traslocare.",
     lang_label: "Lingua"
   }
 };
@@ -151,12 +103,12 @@ function setLang(lang) {
   syncLangLinks(lang);
   updateLangQuery(lang);
   updateLangSwitcher(lang);
-  document.querySelectorAll(".note-meta[data-date]").forEach((el) => {
-    el.textContent = formatDateTime(el.dataset.date, lang);
+
+  // .lang-block (about page): mostra apenas o bloco da língua activa
+  document.querySelectorAll(".lang-block").forEach((block) => {
+    block.classList.toggle("show", block.dataset.lang === lang);
   });
 
-  // Remove loading class to show content
-  document.body.classList.remove("loading");
   document.body.classList.remove("lang-pending");
 }
 
@@ -225,128 +177,6 @@ function updateLangSwitcher(lang) {
   });
 }
 
-function initBlogFilter() {
-  const filterButtons = document.querySelectorAll("[data-filter]");
-  const posts = document.querySelectorAll(".post-item");
-  if (!filterButtons.length || !posts.length) return;
-
-  function applyFilter(lang) {
-    filterButtons.forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.filter === lang);
-    });
-    posts.forEach((post) => {
-      const plang = post.dataset.lang;
-      post.style.display = (lang === "all" || plang === lang) ? "block" : "none";
-    });
-  }
-
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
-  });
-
-  applyFilter("all");
-}
-
-function initRandomImage() {
-  const img = document.getElementById("randomImage");
-  if (!img) return;
-  const section = img.closest(".random-image-section");
-  const sourceEl = document.getElementById("imageSource");
-  const images = (window.RANDOM_IMAGES || []).map((src) => ({ src }));
-  if (!images.length) {
-    if (section) section.style.display = "none";
-    return;
-  }
-  const choice = images[Math.floor(Math.random() * images.length)];
-  img.src = choice.src;
-  img.alt = choice.alt || "";
-  const loadSources = () => {
-    if (window.IMAGE_SOURCES) {
-      return Promise.resolve(window.IMAGE_SOURCES);
-    }
-    return fetch("assets/image_sources.json").then((res) => res.json());
-  };
-  if (sourceEl) {
-    loadSources()
-      .then((sources) => {
-        const file = choice.src.split("/").pop();
-        const data = sources[file];
-        const desc = data && data.description ? String(data.description).trim() : "";
-        const src = data && data.source ? String(data.source).trim() : "";
-        if (!desc && !src) {
-          sourceEl.textContent = "";
-          return;
-        }
-        const parts = [];
-        if (desc) parts.push(desc);
-        if (src) parts.push(src);
-        const text = parts.join(" - ");
-        if (data && data.url) {
-          sourceEl.innerHTML = `<a href="${data.url}">${text}</a>`;
-        } else {
-          sourceEl.textContent = text;
-        }
-      })
-      .catch(() => {
-        sourceEl.textContent = "";
-      });
-  }
-  if (section) section.style.display = "";
-}
-
-function initNotes() {
-  const container = document.getElementById("notes");
-  if (!container) return;
-  if (container.dataset.static === "true") return;
-  fetch("notes.json")
-    .then((res) => res.json())
-    .then((notes) => {
-      const langLabels = { pt: "PT", en: "EN", it: "IT" };
-      container.innerHTML = "";
-      const filtered = notes.filter((note) => note.title !== "[TÍTULO]" && !note.full_page);
-      filtered.forEach((note, idx) => {
-        const article = document.createElement("article");
-        article.className = "post-item";
-        if (note.lang) article.dataset.lang = note.lang;
-
-        const title = document.createElement("h2");
-        title.textContent = note.title || "";
-        article.appendChild(title);
-
-        const meta = document.createElement("p");
-        meta.className = "meta";
-        const dateRaw = note.date || "";
-        const date = dateRaw.split(" ")[0];
-        const langTag = langLabels[note.lang] || (note.lang || "").toUpperCase();
-        const parts = [];
-        if (date) parts.push(date);
-        if (langTag) parts.push(`<span class="lang-tag">${langTag}</span>`);
-        if (note.source) parts.push(note.source);
-        meta.innerHTML = parts.join(" · ");
-        article.appendChild(meta);
-
-        const body = document.createElement("div");
-        body.className = "post-body";
-        body.innerHTML = note.body_html || "";
-        const firstPara = body.firstElementChild;
-        if (firstPara && firstPara.tagName === "P" && !firstPara.textContent.trim()) {
-          firstPara.remove();
-        }
-        article.appendChild(body);
-
-        container.appendChild(article);
-        if (idx < filtered.length - 1) {
-          const hr = document.createElement("hr");
-          hr.className = "post-divider";
-          container.appendChild(hr);
-        }
-      });
-    })
-    .catch(() => {
-      container.innerHTML = '<p class="meta">Notes unavailable.</p>';
-    });
-}
-
 function initEmailObfuscation() {
   const links = document.querySelectorAll(".js-email");
   links.forEach((link) => {
@@ -360,101 +190,8 @@ function initEmailObfuscation() {
   });
 }
 
-function initHomeNotes() {
-  const container = document.getElementById("home-notes");
-  if (!container) return;
-  fetch("notes.json")
-    .then((res) => res.json())
-    .then((notes) => {
-      const filtered = notes.filter((note) => note.title !== "[TÍTULO]" && !note.full_page);
-      filtered.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-      const items = filtered.slice(0, 5);
-      container.innerHTML = "";
-      items.forEach((note) => {
-        const item = document.createElement("div");
-        item.className = "note-item";
-
-        const meta = document.createElement("div");
-        meta.className = "note-meta";
-        meta.dataset.date = note.date || "";
-        const currentLang = document.documentElement.lang || "en";
-        meta.textContent = formatDateTime(note.date || "", currentLang);
-        item.appendChild(meta);
-
-        const plain = stripHtml(note.body_html || "");
-        const excerpt = buildExcerpt(plain, 360);
-        const excerptEl = document.createElement("p");
-        excerptEl.className = "note-excerpt";
-        excerptEl.textContent = excerpt;
-        item.appendChild(excerptEl);
-
-        container.appendChild(item);
-      });
-    })
-    .catch(() => {
-      container.innerHTML = '<p class="meta">Notes unavailable.</p>';
-    });
-}
-
-const MONTHS = {
-  pt: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-       "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-  it: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
-       "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],
-  en: ["January", "February", "March", "April", "May", "June",
-       "July", "August", "September", "October", "November", "December"],
-};
-
-function formatDateTime(dateRaw, lang) {
-  const raw = String(dateRaw || "");
-  if (!raw) return "";
-  const datePart = raw.split(" ")[0] || "";
-  const m = datePart.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!m) return datePart;
-  const months = MONTHS[lang] || MONTHS.en;
-  return `${parseInt(m[3], 10)} ${months[parseInt(m[2], 10) - 1]} ${m[1]}`;
-}
-
-function stripHtml(text) {
-  return (text || "").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim();
-}
-
-function buildExcerpt(text, limit) {
-  if (text.length <= limit) return text;
-  const cut = text.slice(0, limit);
-  return `${cut.replace(/\\s+\\S*$/, "")}`;
-}
-
-function initMenuToggle() {
-  const toggle = document.querySelector(".menu-toggle");
-  if (!toggle) return;
-  const nav = toggle.closest(".nav");
-  if (!nav) return;
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("menu-open");
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  nav.addEventListener("click", (event) => {
-    if (event.target && event.target.tagName === "A") {
-      nav.classList.remove("menu-open");
-      toggle.setAttribute("aria-expanded", "false");
-    }
-  });
-  document.addEventListener("click", (event) => {
-    if (!nav.classList.contains("menu-open")) return;
-    if (nav.contains(event.target)) return;
-    nav.classList.remove("menu-open");
-    toggle.setAttribute("aria-expanded", "false");
-  });
-}
-
 window.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("lang-pending");
   initLang();
-  initBlogFilter();
-  initNotes();
-  initHomeNotes();
-  initRandomImage();
   initEmailObfuscation();
-  initMenuToggle();
 });
