@@ -10,11 +10,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NOTES_JSON = ROOT / "notes.json"
 INDEX_HTML = ROOT / "index.html"
+ARQUIVO_HTML = ROOT / "arquivo.html"
 NOTES_HTML = ROOT / "notas.html"
 CRONICAS_HTML = ROOT / "cronicas.html"
 NOTES_DIR = ROOT / "notes"
 SITE_URL = "https://davidescarso.github.io"
 CACHE_BUST = "20260510a"
+HOME_LIMIT = 20
 
 LABEL = {
     "cronica": {"pt": "— CRÓNICA", "it": "— CRONACA", "en": "— CHRONICLE"},
@@ -190,8 +192,10 @@ def join_with_sep(blocks: list[str]) -> str:
     return "\n".join(parts)
 
 
-def render_mixed(notes: list[dict]) -> str:
+def render_mixed(notes: list[dict], limit: int | None = None) -> str:
     sorted_notes = sorted(notes, key=lambda n: (n.get("date") or ""), reverse=True)
+    if limit is not None:
+        sorted_notes = sorted_notes[:limit]
     return join_with_sep([render_block(n) for n in sorted_notes])
 
 
@@ -266,7 +270,7 @@ def render_note_page(note: dict) -> str:
 </nav>
 </header>
 <main class="col">
-<a class="back-archive" href="../index.html" data-i18n="back_archive">{back}</a>
+<a class="back-archive" href="../arquivo.html" data-i18n="back_archive">{back}</a>
 <article class="{article_cls}" data-lang="{lang}">
 <p class="{label_cls}">{html.escape(label_text)}</p>
 {title_block}
@@ -277,7 +281,7 @@ def render_note_page(note: dict) -> str:
 <footer class="col">
 <p class="footer-quote" data-i18n="footer_quote">Antes estavam no Facebook. Um mês de bloqueio sem explicação fez-me mudar de casa.</p>
 <div class="footer-bar">
-<a class="archive-link" href="../index.html" data-i18n="archive_link">arquivo completo →</a>
+<a class="archive-link" href="../arquivo.html" data-i18n="archive_link">arquivo completo →</a>
 <div class="lang-switcher" data-i18n-aria="lang_label">
 <a class="lang-opt" data-lang="pt" href="?lang=pt">pt</a>
 <span class="lang-sep" aria-hidden="true">·</span>
@@ -313,7 +317,8 @@ def write_note_pages(notes: list[dict]) -> None:
 
 def main() -> None:
     notes = load_notes()
-    update_html_page(INDEX_HTML, "archive", render_mixed(notes))
+    update_html_page(INDEX_HTML, "latest", render_mixed(notes, limit=HOME_LIMIT))
+    update_html_page(ARQUIVO_HTML, "archive", render_mixed(notes))
     update_html_page(NOTES_HTML, "notes", render_filtered(notes, "nota"))
     update_html_page(CRONICAS_HTML, "cronicas", render_filtered(notes, "cronica"))
     write_note_pages(notes)
