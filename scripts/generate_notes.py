@@ -187,7 +187,7 @@ def render_block(note: dict) -> str:
 def join_with_sep(blocks: list[str]) -> str:
     if not blocks:
         return ""
-    sep = '<div class="sep" aria-hidden="true">⠁⠂⠄⠄⠂⠁⠁⠂⠄⠄⠂⠁</div>'
+    sep = '<div class="sep" aria-hidden="true">— · — · — · —</div>'
     parts: list[str] = []
     for i, b in enumerate(blocks):
         parts.append(b)
