@@ -121,6 +121,7 @@ a:hover {
 
 .entry {
   margin-bottom: 0;
+  display: flow-root; /* contém floats (figures) */
 }
 
 .label {
@@ -168,8 +169,16 @@ a:hover {
 .cronica-body figure,
 .nota-body figure,
 .excerto-body figure {
-  margin: 32px auto;
-  max-width: 460px;
+  float: right;
+  margin: 4px 0 16px 28px;
+  max-width: 280px;
+  width: 40%;
+}
+
+.entry figure.figure-left,
+.cronica-body figure.figure-left {
+  float: left;
+  margin: 4px 28px 16px 0;
 }
 
 .entry figure img,
@@ -391,4 +400,13 @@ footer.col {
   .sep { margin: 48px 0; }
   .cronica-title { font-size: 24px; }
   footer.col { margin-top: 72px; padding-top: 36px; }
+  .entry figure,
+  .cronica-body figure,
+  .nota-body figure,
+  .excerto-body figure {
+    float: none;
+    margin: 24px auto;
+    max-width: 100%;
+    width: auto;
+  }
 }
