@@ -368,7 +368,6 @@ def render_note_page(note: dict) -> str:
 </article>
 </main>
 <footer class="col">
-<p class="footer-quote" data-i18n="footer_quote">Antes estavam no Facebook. Um mês de bloqueio sem explicação fez-me mudar de casa.</p>
 <div class="footer-bar">
 <a class="archive-link" href="../arquivo.html" data-i18n="archive_link">arquivo completo →</a>
 <a class="archive-link js-email" data-email-user="dascarso" data-email-domain="mailbox" data-email-tld="org" data-email-keep-label="1" href="#">contato →</a>
