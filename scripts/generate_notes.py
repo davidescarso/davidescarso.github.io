@@ -111,9 +111,24 @@ def extract_intro(body_html: str) -> tuple[str, bool]:
     return f"<p>{html.escape(excerpt_plain)}</p>", True
 
 
+URL_AS_TEXT_RE = re.compile(
+    r'<a([^>]*?)href="(https?://[^"]+)"([^>]*?)>\s*\2\s*</a>',
+    re.IGNORECASE,
+)
+
+
+def beautify_url_links(body: str) -> str:
+    """Quando <a href='URL'>URL</a>, troca o texto por 'Link ↗'."""
+    return URL_AS_TEXT_RE.sub(r'<a\1href="\2"\3>Link ↗</a>', body)
+
+
 def load_notes() -> list[dict]:
     notes = json.loads(NOTES_JSON.read_text(encoding="utf-8"))
-    return [n for n in notes if n.get("title") != "[TÍTULO]"]
+    notes = [n for n in notes if n.get("title") != "[TÍTULO]"]
+    for n in notes:
+        if n.get("body_html"):
+            n["body_html"] = beautify_url_links(n["body_html"])
+    return notes
 
 
 def label_for(kind: str, lang: str) -> str:
