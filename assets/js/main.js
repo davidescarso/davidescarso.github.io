@@ -21,7 +21,7 @@ const i18n = {
     meta_desc_contact: "Email and institutional affiliation.",
     archive_link: "full archive →",
     back_archive: "← archive",
-    footer_quote: "They used to be on Facebook. A month locked out, with no explanation, made me move house.",
+    footer_quote: "Much of this used to be on Facebook.",
     lang_label: "Language"
   },
   pt: {
@@ -46,7 +46,7 @@ const i18n = {
     meta_desc_contact: "Email e afiliação institucional.",
     archive_link: "arquivo completo →",
     back_archive: "← arquivo",
-    footer_quote: "Antes estavam no Facebook. Um mês de bloqueio sem explicação fez-me mudar de casa.",
+    footer_quote: "Antes muito disto estava no Facebook.",
     lang_label: "Idioma"
   },
   it: {
@@ -71,7 +71,7 @@ const i18n = {
     meta_desc_contact: "Email e affiliazione istituzionale.",
     archive_link: "archivio completo →",
     back_archive: "← archivio",
-    footer_quote: "Prima erano su Facebook. Un mese di blocco senza spiegazioni mi ha fatto traslocare.",
+    footer_quote: "Prima molto di questo era su Facebook.",
     lang_label: "Lingua"
   }
 };
