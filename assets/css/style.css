@@ -163,6 +163,36 @@ a:hover {
 .cronica-body p { margin: 0 0 1em; }
 .cronica-body p:last-child { margin-bottom: 0; }
 
+/* Figures inside any entry body */
+.entry figure,
+.cronica-body figure,
+.nota-body figure,
+.excerto-body figure {
+  margin: 32px auto;
+  max-width: 460px;
+}
+
+.entry figure img,
+.cronica-body figure img,
+.nota-body figure img,
+.excerto-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.entry figcaption,
+.cronica-body figcaption,
+.nota-body figcaption,
+.excerto-body figcaption {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
 .nota-body {
   font-size: 19px;
   line-height: 1.65;
