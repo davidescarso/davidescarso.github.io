@@ -192,12 +192,22 @@ def render_label(kind: str, lang: str) -> str:
     return f'<p class="{cls}">{html.escape(label_for(kind, lang))}</p>'
 
 
+PUBLISHED_SOURCES = {"Público", "Direitos Digitais"}
+
+
+def render_date_meta(note: dict, lang: str) -> str:
+    date = format_date(note.get("date", ""), lang)
+    source = note.get("source")
+    if source in PUBLISHED_SOURCES:
+        return f'<span class="date">{html.escape(date)} · {html.escape(source)}</span>'
+    return f'<span class="date">{html.escape(date)}</span>'
+
+
 def render_cronica_block(note: dict) -> str:
     lang = (note.get("lang") or "en").lower()
     title = html.escape(note.get("title", ""))
     slug = get_slug(note)
     intro_html, was_cut = extract_intro(note.get("body_html", ""))
-    date = format_date(note.get("date", ""), lang)
     cont = CONTINUE.get(lang, CONTINUE["en"])
     foot_left = (
         f'<a class="continue-link" href="notes/{slug}.html">{html.escape(cont)}</a>'
@@ -210,7 +220,7 @@ def render_cronica_block(note: dict) -> str:
         f'<div class="cronica-body">{intro_html}</div>'
         f'<div class="entry-foot">'
         f'{foot_left}'
-        f'<span class="date">{html.escape(date)}</span>'
+        f'{render_date_meta(note, lang)}'
         f'</div>'
         f'</article>'
     )
@@ -352,7 +362,7 @@ def render_note_page(note: dict) -> str:
 <p class="{label_cls}">{html.escape(label_text)}</p>
 {title_block}
 <div class="{body_cls}">{body_clean}</div>
-<div class="entry-foot"><span class="date">{html.escape(date)}</span></div>
+<div class="entry-foot">{render_date_meta(note, lang)}</div>
 </article>
 </main>
 <footer class="col">
