@@ -194,7 +194,7 @@ def render_label(kind: str, lang: str) -> str:
     return f'<p class="{cls}">{html.escape(label_for(kind, lang))}</p>'
 
 
-PUBLISHED_SOURCES = {"Público", "Direitos Digitais"}
+PUBLISHED_SOURCES = {"Público", "Direitos Digitais", "Shifter"}
 
 
 def render_date_meta(note: dict, lang: str) -> str:
