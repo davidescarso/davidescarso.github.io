@@ -30,6 +30,10 @@ em ordem cronológica inversa.
   institucional (DCSA, CIUHCT). **Página órfã** — só acessível por URL
   directo; email exposto no rodapé de todas as páginas
 - `/howtos.html` — vazio mas presente; sem link no menu
+- `/altopiano-1916.html` — página órfã auto-contida (guia de férias
+  Altopiano di Asiago 1916 / Vicenza, partilhada com o filho). Só por
+  URL directo; sem link no menu nem no sitemap. Design próprio (fontes
+  Oswald/Spectral, não usa `style.css`); 16 imagens em base64
 - `/notes/{slug}.html` — página individual para cada uma das 96 entradas
 - `/feed.xml` — RSS 2.0 com as 50 mais recentes
 
